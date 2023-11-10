@@ -47,6 +47,9 @@ dependencies:
   dayjs:
     specifier: ^1.11.10
     version: 1.11.10
+  fastclick:
+    specifier: ^1.0.6
+    version: 1.0.6
   tki-qrcode:
     specifier: ^0.1.6
     version: 0.1.6
@@ -76,6 +79,9 @@ devDependencies:
   '@dcloudio/vite-plugin-uni':
     specifier: 3.0.0-3081220230817001
     version: 3.0.0-3081220230817001(postcss@8.4.31)(vite@4.1.4)(vue@3.3.8)
+  '@types/fastclick':
+    specifier: ^1.0.33
+    version: 1.0.33
   '@uni-helper/vite-plugin-uni-components':
     specifier: ^0.0.8
     version: 0.0.8
@@ -2985,6 +2991,10 @@ packages:
     resolution: {integrity: sha512-/kYRxGDLWzHOB7q+wtSUQlFrtcdUccpfy+X+9iMBpHK8QLLhx2wIPYuS5DYtR9Wa/YlZAbIovy7qVdB1Aq6Lyw==}
     dev: true
 
+  /@types/fastclick@1.0.33:
+    resolution: {integrity: sha512-9ozDtzt+22WVxpJvdoq1G24AWy6vUqu4utfbmpgU/i13vBtgOzLKtEPm3rLEHpzpooYKe+w/OxFFgOOGetlA9g==}
+    dev: true
+
   /@types/graceful-fs@4.1.9:
     resolution: {integrity: sha512-olP3sd1qOEe5dXTSaFvQG+02VdRXcdytWLAZsAq1PecU8uqQAhkrnbli7DagjtXKW/Bl7YJbUsa8MPcuc8LHEQ==}
     dependencies:
@@ -4188,6 +4198,10 @@ packages:
   /fast-json-stable-stringify@2.1.0:
     resolution: {integrity: sha512-lhd/wF+Lk98HZoTCtlVraHtfh5XYijIjalXck7saUtuanSDyLMxnHhSXEDJqHxD7msR8D0uCmqlkwjCV8xvwHw==}
     dev: true
+
+  /fastclick@1.0.6:
+    resolution: {integrity: sha1-FhYlsnsaWAZAWTa9qaLBkm0Gvmo=}
+    dev: false
 
   /fastq@1.15.0:
     resolution: {integrity: sha512-wBrocU2LCXXa+lWBt8RoIRD89Fi8OdABODa/kEnyeyjS5aZO5/GNvI5sEINADqP/h8M29UHTHUb53sUu5Ihqdw==}
