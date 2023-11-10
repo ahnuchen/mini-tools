@@ -2,27 +2,27 @@
   <view>
     <wd-cell-group border>
       <wd-cell title="摄氏度(C)" title-width="200upx">
-        <wd-input-number placeholder="请输入摄氏度(C)" :precision="2" v-model="valueC" allow-null
+        <wd-input-number :min="-Infinity" placeholder="请输入摄氏度(C)" :precision="2" v-model="valueC" allow-null
                          @change="(v) => onChange(v, 'C')"
                          input-width="120px"/>
       </wd-cell>
       <wd-cell title="华氏度(F)" title-width="200upx">
-        <wd-input-number placeholder="请输入华氏度(F)" :precision="2" v-model="valueF" allow-null
+        <wd-input-number :min="-Infinity" placeholder="请输入华氏度(F)" :precision="2" v-model="valueF" allow-null
                          @change="(v) => onChange(v, 'F')"
                          input-width="120px"/>
       </wd-cell>
       <wd-cell title="开氏度(K)" title-width="200upx">
-        <wd-input-number placeholder="请输入开氏度(K)" :precision="2" v-model="valueK" allow-null
+        <wd-input-number :min="-Infinity" placeholder="请输入开氏度(K)" :precision="2" v-model="valueK" allow-null
                          @change="(v) => onChange(v, 'K')"
                          input-width="120px"/>
       </wd-cell>
       <wd-cell title="兰氏度(Ra)" title-width="200upx">
-        <wd-input-number placeholder="请输入兰氏度(Ra)" :precision="2" v-model="valueRa" allow-null
+        <wd-input-number :min="-Infinity" placeholder="请输入兰氏度(Ra)" :precision="2" v-model="valueRa" allow-null
                          @change="(v) => onChange(v, 'Ra')"
                          input-width="120px"/>
       </wd-cell>
       <wd-cell title="列氏度(Re)" title-width="200upx">
-        <wd-input-number placeholder="请输入列氏度(Re)" :precision="2" v-model="valueRe" allow-null
+        <wd-input-number :min="-Infinity" placeholder="请输入列氏度(Re)" :precision="2" v-model="valueRe" allow-null
                          @change="(v) => onChange(v, 'Re')"
                          input-width="120px"/>
       </wd-cell>

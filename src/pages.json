@@ -27,6 +27,13 @@
         "navigationBarTitleText": "温度转换",
         "enablePullDownRefresh": true
       }
+    },
+    {
+      "path": "pages/datecal/datecal",
+      "style": {
+        "navigationBarTitleText": "日期计算",
+        "enablePullDownRefresh": true
+      }
     }
   ],
   "globalStyle": {

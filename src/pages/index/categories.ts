@@ -31,7 +31,12 @@ export const categories: {
                 title: '温度转换',
                 label: '温度转换是一款多功能的数据处理软件，支持多平台应用。它可以将任意格式的数字转换为所需的模拟温度值，例如摄氏度、华氏度、开尔文等，适合温度不同场合转换有严格要求的用户',
                 url: '/pages/temperaturetrans/temperaturetrans'
-            }
+            },
+            {
+                title: '日期计算',
+                label: '温度转换是一款多功能的数据处理软件，支持多平台应用。它可以将任意格式的数字转换为所需的模拟温度值，例如摄氏度、华氏度、开尔文等，适合温度不同场合转换有严格要求的用户',
+                url: '/pages/datecal/datecal'
+            },
         ]
     },
     {
