@@ -21,7 +21,8 @@
         <wd-button @click="clear">再生成一张</wd-button>
       </view>
     </view>
-
+    <FloatBtn
+        desc="二维码生成是一个专业、免费的二维码生成工具。它可以将域名、汉字、名字、英文生成二维码，通过可用通过该工具生成的二维码使用在各个场景中，适合程序员、运营名、产品等有二维码需求的用户进行使用"/>
   </view>
 </template>
 <script setup lang="ts">
@@ -29,6 +30,7 @@ import {getCurrentInstance, ref} from "vue";
 import tkiQrcode from 'tki-qrcode/components/tki-qrcode/tki-qrcode.vue'
 import {downloadFileByBase64} from "@/utils";
 import dayjs from "dayjs";
+import FloatBtn from "@/components/FloatBtn.vue";
 
 const currentInstance = getCurrentInstance()
 

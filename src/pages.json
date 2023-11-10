@@ -20,6 +20,13 @@
         "navigationBarTitleText": "",
         "enablePullDownRefresh": true
       }
+    },
+    {
+      "path": "pages/temperaturetrans/temperaturetrans",
+      "style": {
+        "navigationBarTitleText": "温度转换",
+        "enablePullDownRefresh": true
+      }
     }
   ],
   "globalStyle": {

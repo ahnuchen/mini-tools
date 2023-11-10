@@ -15,6 +15,7 @@ declare module '@vue/runtime-core' {
     WdCellGroup: typeof import('wot-design-uni/components/wd-cell-group/wd-cell-group.vue')['default']
     WdIcon: typeof import('wot-design-uni/components/wd-icon/wd-icon.vue')['default']
     WdInput: typeof import('wot-design-uni/components/wd-input/wd-input.vue')['default']
+    WdInputNumber: typeof import('wot-design-uni/components/wd-input-number/wd-input-number.vue')['default']
     WdMessageBox: typeof import('wot-design-uni/components/wd-message-box/wd-message-box.vue')['default']
     WdOverlay: typeof import('wot-design-uni/components/wd-overlay/wd-overlay.vue')['default']
     WdPopup: typeof import('wot-design-uni/components/wd-popup/wd-popup.vue')['default']
