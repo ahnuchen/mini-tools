@@ -52,6 +52,7 @@
     "@dcloudio/uni-mp-toutiao": "3.0.0-3081220230817001",
     "@dcloudio/uni-mp-weixin": "3.0.0-3081220230817001",
     "@dcloudio/uni-quickapp-webview": "3.0.0-3081220230817001",
+    "dayjs": "^1.11.10",
     "tki-qrcode": "^0.1.6",
     "vue": "^3.2.45",
     "vue-i18n": "^9.1.9",
