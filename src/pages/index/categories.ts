@@ -40,10 +40,16 @@ export const categories: {
         ]
     },
     {
-        label: '三',
-        title: '标题三',
+        label: '生活娱乐',
+        title: '生活娱乐工具',
         icon: 'location',
-        items: subCategories.slice(0, 18)
+        items: [{
+            title: '手持弹幕LED',
+            url: '/pages/led/led'
+        }, {
+            title: '车牌归属地',
+            url: '/pages/carnumber/carnumber'
+        },]
     },
     {
         label: '分类四',

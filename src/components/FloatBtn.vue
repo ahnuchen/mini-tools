@@ -20,6 +20,7 @@ const props = defineProps({
 
 function showDesc() {
   message.alert({
+    title: '工具介绍',
     msg: props.desc,
     confirmButtonText: '我知道了',
   })
@@ -30,7 +31,7 @@ function showDesc() {
 <style lang="scss">
 .float-btn {
   position: fixed;
-  bottom: 40upx;
+  bottom: 90upx;
   right: 40upx;
 }
 </style>

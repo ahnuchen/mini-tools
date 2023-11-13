@@ -18,21 +18,35 @@
       "path": "pages/mailcode/mailcode",
       "style": {
         "navigationBarTitleText": "",
-        "enablePullDownRefresh": true
+        "enablePullDownRefresh": false
       }
     },
     {
       "path": "pages/temperaturetrans/temperaturetrans",
       "style": {
         "navigationBarTitleText": "温度转换",
-        "enablePullDownRefresh": true
+        "enablePullDownRefresh": false
       }
     },
     {
       "path": "pages/datecal/datecal",
       "style": {
         "navigationBarTitleText": "日期计算",
-        "enablePullDownRefresh": true
+        "enablePullDownRefresh": false
+      }
+    },
+    {
+      "path": "pages/led/led",
+      "style": {
+        "navigationBarTitleText": "手持弹幕LED",
+        "enablePullDownRefresh": false
+      }
+    },
+    {
+      "path": "pages/carnumber/carnumber",
+      "style": {
+        "navigationBarTitleText": "车牌归属地",
+        "enablePullDownRefresh": false
       }
     }
   ],
