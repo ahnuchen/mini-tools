@@ -25,3 +25,15 @@ export function downloadFileByBase64(base64: string, name: string) {
     let myUrl = URL.createObjectURL(myBlob)
     downloadFile(myUrl, name)
 }
+
+export const debounceFn = (fn: any, delay: number) => {
+    let timer: any = null
+    delay = delay || 500
+    return (...args: any[]) => {
+        const vm = this
+        if (timer) clearTimeout(timer)
+        timer = setTimeout(() => {
+            fn.apply(vm, args)
+        }, delay)
+    }
+}

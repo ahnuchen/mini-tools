@@ -4,7 +4,7 @@
     {
       "path": "pages/index/index",
       "style": {
-        "navigationBarTitleText": "帮帮忙"
+        "navigationBarTitleText": "帮帮忙工具箱"
       }
     },
     //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
@@ -39,7 +39,8 @@
       "path": "pages/led/led",
       "style": {
         "navigationBarTitleText": "手持弹幕LED",
-        "enablePullDownRefresh": false
+        "enablePullDownRefresh": false,
+        "navigationStyle": "custom"
       }
     },
     {

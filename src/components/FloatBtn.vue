@@ -33,5 +33,6 @@ function showDesc() {
   position: fixed;
   bottom: 90upx;
   right: 40upx;
+  z-index: 1;
 }
 </style>
