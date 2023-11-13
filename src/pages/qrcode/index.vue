@@ -73,7 +73,7 @@ function onRes(src: string) {
 .qrcode-wrapper {
   width: 90%;
   margin: 0 auto;
-  padding: 40upx 0;
+  padding: 40rpx 0;
 
   :global(.wd-input__textarea) {
     border-radius: $uni-border-radius-lg;
@@ -88,13 +88,13 @@ function onRes(src: string) {
 
   .btns {
     display: flex;
-    padding: 60upx;
+    padding: 60rpx;
   }
 
   .code-image {
     display: flex;
     width: 100%;
-    height: 360upx;
+    height: 360rpx;
     justify-content: center;
     align-items: center;
     text-align: center;

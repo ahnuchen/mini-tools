@@ -10,11 +10,8 @@ export {}
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     FloatBtn: typeof import('./src/components/FloatBtn.vue')['default']
-    WdActionSheet: typeof import('wot-design-uni/components/wd-action-sheet/wd-action-sheet.vue')['default']
     WdBadge: typeof import('wot-design-uni/components/wd-badge/wd-badge.vue')['default']
     WdButton: typeof import('wot-design-uni/components/wd-button/wd-button.vue')['default']
-    WdCalendar: typeof import('wot-design-uni/components/wd-calendar/wd-calendar.vue')['default']
-    WdCalendarView: typeof import('wot-design-uni/components/wd-calendar-view/wd-calendar-view.vue')['default']
     WdCard: typeof import('wot-design-uni/components/wd-card/wd-card.vue')['default']
     WdCell: typeof import('wot-design-uni/components/wd-cell/wd-cell.vue')['default']
     WdCellGroup: typeof import('wot-design-uni/components/wd-cell-group/wd-cell-group.vue')['default']
@@ -38,7 +35,6 @@ declare module '@vue/runtime-core' {
     WdSwitch: typeof import('wot-design-uni/components/wd-switch/wd-switch.vue')['default']
     WdTab: typeof import('wot-design-uni/components/wd-tab/wd-tab.vue')['default']
     WdTabs: typeof import('wot-design-uni/components/wd-tabs/wd-tabs.vue')['default']
-    WdTag: typeof import('wot-design-uni/components/wd-tag/wd-tag.vue')['default']
     WdToast: typeof import('wot-design-uni/components/wd-toast/wd-toast.vue')['default']
     WdTransition: typeof import('wot-design-uni/components/wd-transition/wd-transition.vue')['default']
   }

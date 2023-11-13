@@ -66,11 +66,11 @@ function onScroll(e) {
   height: calc(100vh - var(--window-top) - env(safe-area-inset-bottom));
 
   .sidebar {
-    width: 250upx;
+    width: 250rpx;
 
     .side-item {
       justify-content: flex-start;
-      font-size: 32upx;
+      font-size: 32rpx;
     }
   }
 

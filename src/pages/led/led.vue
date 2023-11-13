@@ -3,7 +3,7 @@
     <view class="text-area" @click="toggleShowActionSheet"
           :style="`color: ${activeColor};background: ${activeBgColor}`">
       <view class="text-roll-wrapper"
-            :style="`font-size: ${size}upx;`">
+            :style="`font-size: ${size}rpx;`">
         <view class="text-roll"
               :style="`animation-duration: ${animationDuration}s;${animationDuration === 0 ? 'animation-name:none;':''}`">
           <view v-if="checked" class="text-bounce">{{ textContent }}</view>
@@ -11,7 +11,7 @@
         </view>
       </view>
     </view>
-    <wd-popup :modal="false" :duration="200" v-model="showActionSheet" position="bottom" custom-style="height: 580upx;">
+    <wd-popup :modal="false" :duration="200" v-model="showActionSheet" position="bottom" custom-style="height: 580rpx;">
       <view class="action-content">
         <wd-tabs v-model="tab">
           <block v-for="(item, index) in ['常用语','字体','速度','颜色']" :key="index">
@@ -21,15 +21,18 @@
               </view>
               <view class="content" v-if="index === 1">
                 <view>字体大小</view>
-                <wd-slider v-model="size" :min="150" :max="600"/>
+                <slider :value="size" max="600" min="50" active-color="#4d80f0" background-color="#d1d1d1"
+                        @change="sliderSizeChange"
+                        show-value/>
                 <view class="open-animate">
                   <view class="open-desc">律动效果{{ checked ? '开 ' : '关 ' }}</view>
                   <wd-switch v-model="checked"/>
                 </view>
-
               </view>
               <view class="content" v-if="index === 2">
-                <wd-slider v-model="speed" :min="0" :max="1000"/>
+                <slider :value="speed" max="1000" min="0" active-color="#4d80f0" background-color="#d1d1d1"
+                        @change="sliderSpeedChange"
+                        show-value/>
               </view>
               <view class="content" v-if="index === 3">
                 <wd-divider>文字颜色</wd-divider>
@@ -66,7 +69,7 @@ import {watch, ref} from "vue";
 import {debounceFn} from "@/utils";
 import {useToast} from 'wot-design-uni'
 
-// text-shadow: ${colorReverse(activeColor)} -2upx -6upx,${colorReverse(activeBgColor)} 6upx 0px;
+// text-shadow: ${colorReverse(activeColor)} -2rpx -6rpx,${colorReverse(activeBgColor)} 6rpx 0px;
 const toast = useToast()
 const showActionSheet = ref(true)
 const tab = ref(0)
@@ -76,6 +79,7 @@ const checked = ref(true)
 const animationDuration = ref(5)
 const activeColor = ref('#ffffff')
 const activeBgColor = ref('#000000')
+
 
 const presetTexts = ['欢迎❤️欢迎', '🌹谢谢你🌹', '可以认识一下么？', '你好，盆友', '再见❤️我会想你的']
 const textContent = ref(presetTexts[0])
@@ -109,6 +113,15 @@ watch(speed, debounceFn(() => {
     animationDuration.value = 10.1 - (speed.value / 100)
   }
 }, 300))
+
+
+function sliderSizeChange(event: any): any {
+  size.value = event.detail.value
+}
+
+function sliderSpeedChange(event: any): any {
+  speed.value = event.detail.value
+}
 
 function toggleShowActionSheet() {
   showActionSheet.value = !showActionSheet.value
@@ -153,20 +166,20 @@ function setCustomText(text: string) {
 
 @keyframes animateBounce {
   0%, 100% {
-    text-shadow: -4upx -4upx 0 #0ff, 4upx 4upx 0 #f00;
+    text-shadow: -4rpx -4rpx 0 #0ff, 4rpx 4rpx 0 #f00;
   }
   25% {
-    text-shadow: 4upx 4upx 0 #0ff, -4upx -4upx 0 #f00;
+    text-shadow: 4rpx 4rpx 0 #0ff, -4rpx -4rpx 0 #f00;
   }
   50% {
-    text-shadow: 4upx -4upx 0 #0ff, 4upx -4upx 0 #f00;
+    text-shadow: 4rpx -4rpx 0 #0ff, 4rpx -4rpx 0 #f00;
   }
   75% {
-    text-shadow: -4upx 4upx 0 #0ff, -4upx 4upx 0 #f00;
+    text-shadow: -4rpx 4rpx 0 #0ff, -4rpx 4rpx 0 #f00;
   }
 }
 
-.led-wrapper {
+.led-wrapper.led-wrapper.led-wrapper {
   display: flex;
   height: calc(100vh - var(--window-top));
   height: calc(100vh - var(--window-top) - constant(safe-area-inset-bottom));
@@ -212,54 +225,54 @@ function setCustomText(text: string) {
     justify-content: space-between;
 
     .content {
-      padding: 20upx 40upx;
+      padding: 20rpx 40rpx;
     }
 
     .open-animate {
       display: flex;
       align-items: center;
-      margin-top: 40upx;
+      margin-top: 40rpx;
 
       .open-desc {
-        width: 200upx;
+        width: 200rpx;
       }
     }
 
     .title {
-      height: 50upx;
-      line-height: 50upx;
-      font-size: 26upx;
+      height: 50rpx;
+      line-height: 50rpx;
+      font-size: 26rpx;
     }
 
     .tag {
-      padding: 6upx 20upx;
+      padding: 6rpx 20rpx;
       display: inline-block;
       float: left;
       background: #000000;
-      margin-bottom: 20upx;
+      margin-bottom: 20rpx;
       color: #ff0000;
-      margin-right: 10upx;
-      border-radius: 8upx;
+      margin-right: 10rpx;
+      border-radius: 8rpx;
     }
 
     .color-tags {
       display: flex;
-      height: 140upx;
+      height: 140rpx;
       flex-wrap: wrap;
       align-items: center;
       justify-content: center;
       background: rgba(#000, 0.03);
-      border-radius: 4upx;
+      border-radius: 4rpx;
     }
 
     .color-tag {
-      width: 70upx;
-      height: 40upx;
-      margin-top: 8upx;
+      width: 70rpx;
+      height: 40rpx;
+      margin-top: 8rpx;
 
       &.active-tag {
-        width: 84upx;
-        height: 50upx;
+        width: 84rpx;
+        height: 50rpx;
       }
     }
   }
@@ -271,7 +284,7 @@ function setCustomText(text: string) {
     justify-content: space-between;
 
     .ipt {
-      width: 530upx;
+      width: 530rpx;
     }
   }
 }
