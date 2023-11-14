@@ -1,80 +1,110 @@
 <template>
   <view class="index-wrapper">
-    <wd-sidebar :model-value="active" custom-class="sidebar" @change="handleChange">
-      <wd-sidebar-item custom-class="side-item" v-for="(item, index) in categories" :key="index" :value="index"
-                       :label="item.label" :icon="item.icon"/>
-    </wd-sidebar>
-    <scroll-view class="scroll-content" scroll-y scroll-with-animation :scroll-top="scrollTop" :throttle="false"
-                 @scroll="onScroll">
-      <view v-for="(item, index) in categories" :key="index" class="category">
-        <wd-cell-group :title="item.title" border>
-          <wd-cell v-for="(cell, index) in item.items" :key="index" :title="cell.title"
-                   :is-link="!!cell.url" :to="cell.url">
-          </wd-cell>
-        </wd-cell-group>
+    <view class="cat-wrapper" v-for="cat in categories">
+      <view class="cat-title">{{ cat.label }}</view>
+      <view class="cat-items">
+        <view @click="jump(item.url)" class="cat-item" v-for="item in cat.items">
+          <view class="icon">
+            <image :src="item.icon || '/static/logo.png'"/>
+          </view>
+          <view class="detail">
+            <view class="title">{{ item.title }}</view>
+            <view class="desc">{{ item.shortDesc }}</view>
+          </view>
+        </view>
       </view>
-    </scroll-view>
+    </view>
   </view>
 </template>
 
 <script lang="ts" setup>
-import {onMounted, ref} from 'vue'
-import {getRect, isArray} from 'wot-design-uni/components/common/util'
 import {categories} from "@/pages/index/categories";
 
 
-const active = ref<number>(0)
-const scrollTop = ref<number>(0)
-const itemScrollTop = ref<number[]>([])
-
-
-onMounted(() => {
-  getRect('.category', true).then((rects) => {
-    if (isArray(rects)) {
-      itemScrollTop.value = rects.map((item) => item.top || 0)
-      scrollTop.value = rects[active.value].top || 0
-    }
+function jump(to: string) {
+  uni.navigateTo({
+    url: to
   })
-})
-
-function handleChange({value}: any) {
-  active.value = value
-  scrollTop.value = itemScrollTop.value[value]
 }
 
-function onScroll(e) {
-  const {scrollTop} = e.detail
-  const threshold = 50 // 下一个标题与顶部的距离
-  if (scrollTop < threshold) {
-    active.value = 0
-    return
-  }
-  const index = itemScrollTop.value.findIndex((top) => top > scrollTop && top - scrollTop <= threshold)
-  if (index > -1) {
-    active.value = index
-  }
-}
 </script>
 <style lang="scss">
 .index-wrapper.index-wrapper.index-wrapper {
-  display: flex;
   height: calc(100vh - var(--window-top));
   height: calc(100vh - var(--window-top) - constant(safe-area-inset-bottom));
   height: calc(100vh - var(--window-top) - env(safe-area-inset-bottom));
+  background: $uni-bg-color-grey;
+  //background: #88bfa2;
+  padding-top: 20rpx;
 
-  .sidebar {
-    width: 250rpx;
+  .cat-wrapper {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 30rpx;
+    margin: 20rpx auto 0;
 
-    .side-item {
-      justify-content: flex-start;
-      font-size: 32rpx;
+    &::after {
+      content: ' ';
+      clear: both;
+      display: block;
     }
   }
 
-  .scroll-content {
-    flex: 1;
-    background: #fff;
+  .cat-title {
+    font-size: 28rpx;
+    color: $uni-text-color;
   }
+
+  .cat-item {
+    display: inline-flex;
+    width: 330rpx;
+    border-radius: 20rpx;
+    height: 140rpx;
+    align-items: center;
+    float: left;
+    background-color: #ffffff;
+    box-sizing: border-box;
+    padding: 20rpx;
+    margin-left: 30rpx;
+    margin-top: 20rpx;
+
+    &:nth-child(2n - 1) {
+      margin-left: 0;
+    }
+  }
+
+  .icon {
+    width: 70rpx;
+    height: 70rpx;
+
+    image {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .detail {
+    height: 96rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1;
+    margin-left: 18rpx;
+  }
+
+  .title {
+    height: 40rpx;
+    font-size: 24rpx;
+  }
+
+  .desc {
+    height: 80rpx;
+    flex: 1;
+    font-size: 22rpx;
+    color: #999999;
+    overflow: hidden;
+  }
+
 }
 
 

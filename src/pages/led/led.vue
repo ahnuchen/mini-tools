@@ -5,19 +5,22 @@
       <view class="text-roll-wrapper"
             :style="`font-size: ${size}rpx;`">
         <view class="text-roll"
-              :style="`animation-duration: ${animationDuration}s;${animationDuration === 0 ? 'animation-name:none;':''}`">
+              :style="`animation-duration: ${animationDuration}s;${animationDuration === 0 || !slideOn ? 'animation-name:none;':''}`">
           <view v-if="checked" class="text-bounce">{{ textContent }}</view>
           <view v-else>{{ textContent }}</view>
         </view>
       </view>
     </view>
-    <wd-popup :modal="false" :duration="200" v-model="showActionSheet" position="bottom" custom-style="height: 580rpx;">
+    <wd-popup custom-class="setting" :modal="false" :duration="200" v-model="showActionSheet" position="bottom"
+              custom-style="height: 580rpx;">
       <view class="action-content">
         <wd-tabs v-model="tab">
-          <block v-for="(item, index) in ['常用语','字体','速度','颜色']" :key="index">
+          <block v-for="(item, index) in ['常用语','字体','滚动','颜色']" :key="index">
             <wd-tab :title="item">
               <view class="content" v-if="index === 0">
-                <view class="tag" v-for="(item, index) in presetTexts" @click="setText(item)">{{ item }}</view>
+                <view class="tag"
+                      v-for="(item, index) in presetTexts" @click="setText(item)">{{ item }}
+                </view>
               </view>
               <view class="content" v-if="index === 1">
                 <view>字体大小</view>
@@ -30,9 +33,14 @@
                 </view>
               </view>
               <view class="content" v-if="index === 2">
-                <slider :value="speed" max="1000" min="0" active-color="#4d80f0" background-color="#d1d1d1"
+                <view>滚动速度</view>
+                <slider :value="speed" max="100" min="0" active-color="#4d80f0" background-color="#d1d1d1"
                         @change="sliderSpeedChange"
                         show-value/>
+                <view class="open-animate">
+                  <view class="open-desc">滚动{{ slideOn ? '开 ' : '关 ' }}</view>
+                  <wd-switch v-model="slideOn"/>
+                </view>
               </view>
               <view class="content" v-if="index === 3">
                 <wd-divider>文字颜色</wd-divider>
@@ -74,8 +82,9 @@ const toast = useToast()
 const showActionSheet = ref(true)
 const tab = ref(0)
 const size = ref(250)
-const speed = ref(500)
+const speed = ref(50)
 const checked = ref(true)
+const slideOn = ref(true)
 const animationDuration = ref(5)
 const activeColor = ref('#ffffff')
 const activeBgColor = ref('#000000')
@@ -110,7 +119,7 @@ watch(speed, debounceFn(() => {
   if (speed.value === 0) {
     return animationDuration.value = 0
   } else {
-    animationDuration.value = 10.1 - (speed.value / 100)
+    animationDuration.value = 10.1 - (speed.value / 10)
   }
 }, 300))
 
@@ -185,6 +194,16 @@ function setCustomText(text: string) {
   height: calc(100vh - var(--window-top) - constant(safe-area-inset-bottom));
   height: calc(100vh - var(--window-top) - env(safe-area-inset-bottom));
 
+  .setting {
+    background-color: rgba(#666666, 0.4);
+
+    * {
+      background-color: transparent;
+      color: #ffffff;
+
+    }
+  }
+
   .text-area {
     position: relative;
     width: 100%;
@@ -250,7 +269,7 @@ function setCustomText(text: string) {
       float: left;
       background: #000000;
       margin-bottom: 20rpx;
-      color: #ff0000;
+      color: #FFFFFF;
       margin-right: 10rpx;
       border-radius: 8rpx;
     }

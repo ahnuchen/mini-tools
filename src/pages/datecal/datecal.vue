@@ -1,12 +1,14 @@
 <template>
   <view class="datecal-wrapper">
     <wd-card title="计算几天后的日期">
-      <wd-datetime-picker type="date" v-model="date" label-width="200rpx" label="请选择起始日期"
+      <wd-datetime-picker :min-date="minDate" :max-date="maxDate" type="date" v-model="date" label-width="200rpx"
+                          label="请选择起始日期"
                           @confirm="clearDateRes"/>
       <wd-cell title="请输入间隔天数（负数表示向前计算）" title-width="600rpx">
       </wd-cell>
       <view class="ipt-dis">
-        <wd-input-number input-width="200rpx" :min="-Infinity" :precision="0" v-model:model-value="distance"
+        <wd-input-number class="ipt-number" input-width="200rpx" :min="-Infinity" :precision="0"
+                         v-model:model-value="distance"
                          @change="clearDateRes"
                          :step="1"/>
       </view>
@@ -21,9 +23,11 @@
     </wd-card>
 
     <wd-card title="计算时间差">
-      <wd-datetime-picker type="date" v-model="startDate" label-width="200rpx" label="请选择起始日期"
+      <wd-datetime-picker :min-date="minDate" :max-date="maxDate" type="date" v-model="startDate" label-width="200rpx"
+                          label="请选择起始日期"
                           @confirm="clearDiffRes"/>
-      <wd-datetime-picker type="date" v-model="endDate" label-width="200rpx" label="请选择结束日期"
+      <wd-datetime-picker :min-date="minDate" :max-date="maxDate" type="date" v-model="endDate" label-width="200rpx"
+                          label="请选择结束日期"
                           @confirm="clearDiffRes"/>
       <view class="btns">
         <wd-button @click="disCalc">开始计算</wd-button>
@@ -52,6 +56,8 @@ const distance = ref(1)
 const targetDate = ref('')
 const startDate = ref(initialDate)
 const endDate = ref(initialDate)
+const minDate = dayjs().subtract(299, 'years').valueOf()
+const maxDate = dayjs().add(299, 'years').valueOf()
 
 const disValue = ref<number | null>(null)
 
@@ -94,6 +100,19 @@ function disClear() {
 
   .ipt-dis {
     padding-left: 30rpx;
+  }
+
+  .ipt-number {
+    height: 66rpx;
+
+    .wd-input-number__action {
+      height: 66rpx;
+      width: 66rpx;
+    }
+
+    input {
+      height: 66rpx;
+    }
   }
 
   .btns {
