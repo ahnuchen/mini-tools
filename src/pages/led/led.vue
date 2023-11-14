@@ -1,4 +1,5 @@
 <template>
+  <page-meta :page-style="`overflow:${showActionSheet ? 'hidden' : 'visible'};`"></page-meta>
   <view class="led-wrapper">
     <view class="text-area" @click="toggleShowActionSheet"
           :style="`color: ${activeColor};background: ${activeBgColor}`">
@@ -11,11 +12,12 @@
         </view>
       </view>
     </view>
-    <wd-popup custom-class="setting" :modal="false" :duration="200" v-model="showActionSheet" position="bottom"
+    <wd-popup lock-scroll custom-class="setting" :modal="false" :duration="200" v-model="showActionSheet"
+              position="bottom"
               custom-style="height: 580rpx;">
       <view class="action-content">
         <wd-tabs v-model="tab">
-          <block v-for="(item, index) in ['常用语','字体','滚动','颜色']" :key="index">
+          <block v-for="(item, index) in ['常用语','字体/滚动','颜色']" :key="index">
             <wd-tab :title="item">
               <view class="content" v-if="index === 0">
                 <view class="tag"
@@ -27,22 +29,28 @@
                 <slider :value="size" max="600" min="50" active-color="#4d80f0" background-color="#d1d1d1"
                         @change="sliderSizeChange"
                         show-value/>
-                <view class="open-animate">
-                  <view class="open-desc">律动效果{{ checked ? '开 ' : '关 ' }}</view>
-                  <wd-switch v-model="checked"/>
-                </view>
-              </view>
-              <view class="content" v-if="index === 2">
+
                 <view>滚动速度</view>
                 <slider :value="speed" max="100" min="0" active-color="#4d80f0" background-color="#d1d1d1"
                         @change="sliderSpeedChange"
                         show-value/>
-                <view class="open-animate">
-                  <view class="open-desc">滚动{{ slideOn ? '开 ' : '关 ' }}</view>
-                  <wd-switch v-model="slideOn"/>
-                </view>
+                <wd-row>
+                  <wd-col :span="12">
+                    <view class="open-animate">
+                      <view class="open-desc">律动效果{{ checked ? '开 ' : '关 ' }}</view>
+                      <wd-switch v-model="checked"/>
+                    </view>
+                  </wd-col>
+                  <wd-col :span="12">
+                    <view class="open-animate">
+                      <view class="open-desc">滚动{{ slideOn ? '开 ' : '关 ' }}</view>
+                      <wd-switch v-model="slideOn"/>
+                    </view>
+                  </wd-col>
+                </wd-row>
+
               </view>
-              <view class="content" v-if="index === 3">
+              <view class="content" v-if="index === 2">
                 <wd-divider>文字颜色</wd-divider>
                 <view class="color-tags">
                   <view @click="setActiveColor(item)" :class="`color-tag${activeColor === item ? ' active-tag':''}`"
@@ -164,29 +172,6 @@ function setCustomText(text: string) {
 
 <style lang="scss">
 
-@keyframes slide {
-  from {
-    transform: translateX(100%);
-  }
-  to {
-    transform: translateX(-100%);
-  }
-}
-
-@keyframes animateBounce {
-  0%, 100% {
-    text-shadow: -4rpx -4rpx 0 #0ff, 4rpx 4rpx 0 #f00;
-  }
-  25% {
-    text-shadow: 4rpx 4rpx 0 #0ff, -4rpx -4rpx 0 #f00;
-  }
-  50% {
-    text-shadow: 4rpx -4rpx 0 #0ff, 4rpx -4rpx 0 #f00;
-  }
-  75% {
-    text-shadow: -4rpx 4rpx 0 #0ff, -4rpx 4rpx 0 #f00;
-  }
-}
 
 .led-wrapper.led-wrapper.led-wrapper {
   display: flex;
@@ -194,13 +179,36 @@ function setCustomText(text: string) {
   height: calc(100vh - var(--window-top) - constant(safe-area-inset-bottom));
   height: calc(100vh - var(--window-top) - env(safe-area-inset-bottom));
 
-  .setting {
+  @keyframes slide {
+    from {
+      transform: translateX(100%);
+    }
+    to {
+      transform: translateX(-100%);
+    }
+  }
+
+  @keyframes animateBounce {
+    0%, 100% {
+      text-shadow: -4rpx -4rpx 0 #0ff, 4rpx 4rpx 0 #f00;
+    }
+    25% {
+      text-shadow: 4rpx 4rpx 0 #0ff, -4rpx -4rpx 0 #f00;
+    }
+    50% {
+      text-shadow: 4rpx -4rpx 0 #0ff, 4rpx -4rpx 0 #f00;
+    }
+    75% {
+      text-shadow: -4rpx 4rpx 0 #0ff, -4rpx 4rpx 0 #f00;
+    }
+  }
+
+  .setting.setting.setting {
     background-color: rgba(#666666, 0.4);
 
-    * {
+    div, view, text {
       background-color: transparent;
       color: #ffffff;
-
     }
   }
 
@@ -263,7 +271,7 @@ function setCustomText(text: string) {
       font-size: 26rpx;
     }
 
-    .tag {
+    .tag.tag.tag.tag {
       padding: 6rpx 20rpx;
       display: inline-block;
       float: left;
@@ -304,6 +312,11 @@ function setCustomText(text: string) {
 
     .ipt {
       width: 530rpx;
+      color: #ffffff;
+
+      input {
+        color: #ffffff;
+      }
     }
   }
 }

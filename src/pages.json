@@ -49,6 +49,13 @@
         "navigationBarTitleText": "车牌归属地",
         "enablePullDownRefresh": false
       }
+    },
+    {
+      "path": "pages/relativesname/relativesname",
+      "style": {
+        "navigationBarTitleText": "亲戚关系计算器",
+        "enablePullDownRefresh": true
+      }
     }
   ],
   "globalStyle": {

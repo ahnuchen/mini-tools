@@ -43,6 +43,13 @@ export const categories: {
                 url: '/pages/datecal/datecal',
                 icon: 'https://m4.publicimg.browser.qq.com/imgUpload/qbtool.t_tool_info/b91aa2df_xHxN8T3u3Si.png'
             },
+            {
+                title: '亲戚关系计算器',
+                shortDesc: '计算亲戚的称呼，亲戚之间的称呼',
+                label: '',
+                url: '/pages/relativesname/relativesname',
+                icon: 'https://m4.publicimg.browser.qq.com/imgUpload/qbtool.t_tool_info/b91aa2df_5QJiaZbeCPA.png'
+            },
         ]
     },
     {

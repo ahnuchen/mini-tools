@@ -84,7 +84,7 @@ function jump(to: string) {
   }
 
   .detail {
-    height: 96rpx;
+    height: 100rpx;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
