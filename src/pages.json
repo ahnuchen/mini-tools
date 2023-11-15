@@ -53,8 +53,8 @@
     {
       "path": "pages/relativesname/relativesname",
       "style": {
-        "navigationBarTitleText": "亲戚关系计算器",
-        "enablePullDownRefresh": true
+        "navigationBarTitleText": "亲戚称呼计算器",
+        "enablePullDownRefresh": false
       }
     }
   ],

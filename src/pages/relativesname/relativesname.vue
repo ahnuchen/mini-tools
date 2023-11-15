@@ -1,38 +1,52 @@
 <template>
   <!-- #ifdef MP -->
   <view class="relativesname-wrapper">
-    <div class="history">
-      {{ history }}
-    </div>
-    <div class="show">
-      {{ show }}
-    </div>
-    <div class="btns">
-      <wd-button type="primary" class="btn" v-for="(value,callName) in calls" @click="calculate(value)">{{
+    <view class="results">
+      <view class="nick" v-if="reverseResult">Ta称呼我：{{ reverseResult }}</view>
+      <view :style="getHistoryStyle()" :class="`history${reverse? ' gray':''}`">
+        {{ `我${history ? '的' : ''}${history}` }}
+      </view>
+      <view :class="`show${reverse ? '': ' gray'}`">
+        {{ show }}
+      </view>
+    </view>
+    <view class="btns">
+      <wd-button :disabled="disabled && !['back','empty','anti','result'].includes(value)" :key="value"
+                 :custom-class="`btn ${value}`"
+                 :plain="value === 'back' || value === 'empty'"
+                 size="large"
+                 :icon="value === 'anti'? 'translate-bold': false"
+                 :type="['back','empty','result'].includes(value) ? 'warning':'info'" class="btn"
+                 v-for="(value,callName) in calls"
+                 @click="calculate(value)">{{
           callName
         }}
+        <text v-if="value === 'anti'">{{ gender === 1 ? '男' : '女' }}</text>
       </wd-button>
-    </div>
+    </view>
   </view>
   <!-- #endif -->
   <!-- #ifndef MP -->
   <web-view src="http://xue.ccy1994.top/relationship/index.html"/>
   <!-- #endif -->
 </template>
-
 <script setup>
 
 // #ifdef MP
 import relationship from "relationship.js"
 import {ref} from "vue";
 
-const title = ref('亲属关系计算机')
+
 const history = ref("")
 const show = ref("")
+const reverseResult = ref("")
+const reverse = ref(false)
+const disabled = ref(false)
+const gender = ref(1)
 const calls = {
   "夫": "丈夫",
   "妻": "妻子",
-  "返回": "back",
+  "退格": "back",
   "清空": "empty",
   "父": "父亲",
   "母": "母亲",
@@ -42,63 +56,161 @@ const calls = {
   "妹": "妹妹",
   "子": "儿子",
   "女": "女儿",
-  "互查": "anti",
+  "我的性别：": "anti",
   "=": "result"
 }
 
+function getHistoryStyle() {
+  let initialSize = 80
+  const historyLength = history.value.length
+  console.log(`%c historyLength / 7`, 'color: pink;font-size:20px;background:black;', historyLength / 7)
+  let size = initialSize - Math.floor(historyLength / 7) * 10
+  console.log(`%c size`, 'color: pink;font-size:20px;background:black;', size)
+  return `font-size:${Math.max(size, 28)}rpx;`
+}
+
 function calculate(e) {
-  let anti = false;
   switch (e) {
     case "empty":
       history.value = "";
       show.value = "";
+      reverseResult.value = ""
+      reverse.value = false
+      disabled.value = false
       return 0;
     case "result":
+      reverse.value = true
       return 0;
     case "anti":
-      anti = true;
+      gender.value = 1 - gender.value
+      if (history.value === '') {
+        return 0
+      }
       break;
     case "back":
       let old = history.value;
       let sp = old.split("的");
-      if (sp.length > 1) {
-        console.log(sp);
-        sp.splice(-1, 1);
-        console.log(sp);
-      } else {
+      if (sp.length === 1) {
         history.value = "";
         show.value = "";
+        reverseResult.value = ""
         return 0;
-      }
-      if (sp.length > 1) {
-        sp = sp.join("的");
-        console.log(sp);
-        history.value = sp;
       } else {
-        history.value = sp[0];
-        show.value = sp[0];
-        return 0;
+        sp.pop()
+        history.value = sp.join('的');
       }
+      reverse.value = false
+      disabled.value = false
       break;
     default:
       history.value += (history.value === "") ? e : ("的" + e);
       break;
   }
   // history.value+=(history.value=="")?e:("的"+e);
+  getResult()
+}
+
+function getResult() {
   const options = {
     text: history.value,		//输入的文本
     // sex:0,			//自己的性别：0女性,1男性
+    sex: gender.value,
     type: 'default',		//转换类型：'default'算称谓,'chain'算关系(此时reverse无效)
-    reverse: anti		//称呼方式：true对方称呼我,false我称呼对方
+    reverse: false		//称呼方式：true对方称呼我,false我称呼对方
   };
   let result = relationship(options).join("/");
-  console.log(result)
-  show.value = result ? result : "计算器已经被你玩坏了哟!";
+  show.value = result ? result : "再玩就玩坏了";
+  if (result) {
+    disabled.value = false
+    reverseResult.value = relationship({...options, reverse: true}).join('/')
+  } else {
+    reverseResult.value = ''
+    disabled.value = true
+  }
 }
 
 // #endif
 </script>
 
 <style lang="scss">
+$btns-height: 528rpx;
 
+.relativesname-wrapper.relativesname-wrapper.relativesname-wrapper {
+  height: calc(100vh - var(--window-top));
+  height: calc(100vh - var(--window-top) - constant(safe-area-inset-bottom));
+  height: calc(100vh - var(--window-top) - env(safe-area-inset-bottom));
+  background: $uni-bg-color-grey;
+  position: relative;
+
+  .results {
+    position: absolute;
+    width: 100%;
+    bottom: calc($btns-height);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+
+  .nick {
+    width: 90%;
+    text-align: right;
+    margin-bottom: 200rpx;
+    color: $uni-text-color-grey;
+  }
+
+  .history {
+    color: $uni-text-color;
+    //width: 600rpx;
+    //margin-left: 150rpx;
+    width: 80%;
+    margin-left: 10%;
+    margin-bottom: 16rpx;
+    text-align: right;
+    font-size: 80rpx;
+    font-weight: bold;
+
+    &.gray {
+      color: $uni-text-color-grey;
+      font-size: 40rpx;
+      font-weight: normal;
+    }
+  }
+
+  .show {
+    width: 80%;
+    margin-left: 10%;
+    text-align: right;
+    color: $uni-text-color;
+    font-size: 80rpx;
+    font-weight: bold;
+
+    &.gray {
+      font-size: 40rpx;
+      font-weight: normal;
+      color: $uni-text-color-grey;
+    }
+  }
+
+  .btns {
+    position: absolute;
+    bottom: 0;
+    box-sizing: border-box;
+    padding: 40rpx 40rpx;
+    height: $btns-height;
+
+    .wd-button.btn {
+      margin-left: 30rpx;
+      width: 124rpx;
+      margin-top: 30rpx;
+
+      &.anti {
+        width: 380rpx;
+      }
+
+      &.result {
+        width: 200rpx;
+      }
+    }
+  }
+}
 </style>

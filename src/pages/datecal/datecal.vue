@@ -7,7 +7,7 @@
       <wd-cell title="请输入间隔天数（负数表示向前计算）" title-width="600rpx">
       </wd-cell>
       <view class="ipt-dis">
-        <wd-input-number class="ipt-number" input-width="200rpx" :min="-Infinity" :precision="0"
+        <wd-input-number custom-class="ipt-number" input-width="200rpx" :min="-Infinity" :precision="0"
                          v-model:model-value="distance"
                          @change="clearDateRes"
                          :step="1"/>
@@ -95,7 +95,7 @@ function disClear() {
 </script>
 
 <style lang="scss">
-.datecal-wrapper {
+.datecal-wrapper.datecal-wrapper.datecal-wrapper {
   padding-top: 40rpx;
 
   .ipt-dis {
