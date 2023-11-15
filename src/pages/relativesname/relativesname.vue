@@ -2,71 +2,79 @@
   <!-- #ifdef MP -->
   <view class="relativesname-wrapper">
     <view class="results">
-      <view class="nick" v-if="reverseResult">Ta称呼我：{{ reverseResult }}</view>
-      <view :style="getHistoryStyle()" :class="`history${reverse? ' gray':''}`">
-        {{ `我${history ? '的' : ''}${history}` }}
+      <view class="nick" v-if="reverseResult"
+        >Ta称呼我：{{ reverseResult }}
       </view>
-      <view :class="`show${reverse ? '': ' gray'}`">
+      <view
+        :style="getHistoryStyle()"
+        :class="`history${reverse ? ' gray' : ''}`"
+      >
+        {{ `我${history ? "的" : ""}${history}` }}
+      </view>
+      <view :class="`show${reverse ? '' : ' gray'}`">
         {{ show }}
       </view>
     </view>
     <view class="btns">
-      <wd-button :disabled="disabled && !['back','empty','anti','result'].includes(value)" :key="value"
-                 :custom-class="`btn ${value}`"
-                 :plain="value === 'back' || value === 'empty'"
-                 size="large"
-                 :icon="value === 'anti'? 'translate-bold': false"
-                 :type="['back','empty','result'].includes(value) ? 'warning':'info'" class="btn"
-                 v-for="(value,callName) in calls"
-                 @click="calculate(value)">{{
-          callName
-        }}
-        <text v-if="value === 'anti'">{{ gender === 1 ? '男' : '女' }}</text>
+      <wd-button
+        :disabled="
+          disabled && !['back', 'empty', 'anti', 'result'].includes(value)
+        "
+        :key="value"
+        :custom-class="`btn ${value}`"
+        :plain="value === 'back' || value === 'empty'"
+        size="large"
+        :icon="value === 'anti' ? 'translate-bold' : false"
+        :type="['back', 'empty', 'result'].includes(value) ? 'warning' : 'info'"
+        class="btn"
+        v-for="(value, callName) in calls"
+        @click="calculate(value)"
+        >{{ callName }}
+        <text v-if="value === 'anti'">{{ gender === 1 ? "男" : "女" }}</text>
       </wd-button>
     </view>
   </view>
   <!-- #endif -->
   <!-- #ifndef MP -->
-  <web-view src="http://xue.ccy1994.top/relationship/index.html"/>
+  <web-view src="http://xue.ccy1994.top/relationship/index.html" />
   <!-- #endif -->
 </template>
 <script setup>
-
 // #ifdef MP
-import relationship from "relationship.js"
-import {ref} from "vue";
+import relationship from "relationship.js";
+import { ref } from "vue";
+import { onShareAppMessage, onShareTimeline } from "@dcloudio/uni-app";
 
-
-const history = ref("")
-const show = ref("")
-const reverseResult = ref("")
-const reverse = ref(false)
-const disabled = ref(false)
-const gender = ref(1)
+const history = ref("");
+const show = ref("");
+const reverseResult = ref("");
+const reverse = ref(false);
+const disabled = ref(false);
+const gender = ref(1);
 const calls = {
-  "夫": "丈夫",
-  "妻": "妻子",
-  "退格": "back",
-  "清空": "empty",
-  "父": "父亲",
-  "母": "母亲",
-  "兄": "哥哥",
-  "弟": "弟弟",
-  "姐": "姐姐",
-  "妹": "妹妹",
-  "子": "儿子",
-  "女": "女儿",
+  夫: "丈夫",
+  妻: "妻子",
+  退格: "back",
+  清空: "empty",
+  父: "父亲",
+  母: "母亲",
+  兄: "哥哥",
+  弟: "弟弟",
+  姐: "姐姐",
+  妹: "妹妹",
+  子: "儿子",
+  女: "女儿",
   "我的性别：": "anti",
-  "=": "result"
-}
+  "=": "result",
+};
 
 function getHistoryStyle() {
-  let initialSize = 80
-  const historyLength = history.value.length
-  console.log(`%c historyLength / 7`, 'color: pink;font-size:20px;background:black;', historyLength / 7)
-  let size = initialSize - Math.floor(historyLength / 7) * 10
-  console.log(`%c size`, 'color: pink;font-size:20px;background:black;', size)
-  return `font-size:${Math.max(size, 28)}rpx;`
+  let initialSize = 80;
+  const historyLength = history.value.length;
+  let size = initialSize - Math.floor(historyLength / 7) * 10;
+  return `font-size:${
+    reverse.value ? Math.min(size, 40) : Math.max(size, 28)
+  }rpx;`;
 }
 
 function calculate(e) {
@@ -74,17 +82,19 @@ function calculate(e) {
     case "empty":
       history.value = "";
       show.value = "";
-      reverseResult.value = ""
-      reverse.value = false
-      disabled.value = false
+      reverseResult.value = "";
+      reverse.value = false;
+      disabled.value = false;
       return 0;
     case "result":
-      reverse.value = true
+      if (history.value !== "") {
+        reverse.value = true;
+      }
       return 0;
     case "anti":
-      gender.value = 1 - gender.value
-      if (history.value === '') {
-        return 0
+      gender.value = 1 - gender.value;
+      if (history.value === "") {
+        return 0;
       }
       break;
     case "back":
@@ -93,42 +103,52 @@ function calculate(e) {
       if (sp.length === 1) {
         history.value = "";
         show.value = "";
-        reverseResult.value = ""
+        reverseResult.value = "";
+        disabled.value = false;
         return 0;
       } else {
-        sp.pop()
-        history.value = sp.join('的');
+        sp.pop();
+        history.value = sp.join("的");
       }
-      reverse.value = false
-      disabled.value = false
+      reverse.value = false;
+      disabled.value = false;
       break;
     default:
-      history.value += (history.value === "") ? e : ("的" + e);
+      reverse.value = false;
+      history.value += history.value === "" ? e : "的" + e;
       break;
   }
   // history.value+=(history.value=="")?e:("的"+e);
-  getResult()
+  getResult();
 }
 
 function getResult() {
   const options = {
-    text: history.value,		//输入的文本
+    text: history.value, //输入的文本
     // sex:0,			//自己的性别：0女性,1男性
     sex: gender.value,
-    type: 'default',		//转换类型：'default'算称谓,'chain'算关系(此时reverse无效)
-    reverse: false		//称呼方式：true对方称呼我,false我称呼对方
+    type: "default", //转换类型：'default'算称谓,'chain'算关系(此时reverse无效)
+    reverse: false, //称呼方式：true对方称呼我,false我称呼对方
   };
   let result = relationship(options).join("/");
   show.value = result ? result : "再玩就玩坏了";
   if (result) {
-    disabled.value = false
-    reverseResult.value = relationship({...options, reverse: true}).join('/')
+    disabled.value = false;
+    reverseResult.value = relationship({ ...options, reverse: true }).join("/");
   } else {
-    reverseResult.value = ''
-    disabled.value = true
+    reverseResult.value = "";
+    disabled.value = true;
   }
 }
 
+const shareInfo = {
+  url: "/pages/relativesname/relativesname",
+  title: "亲戚称呼计算器",
+};
+
+onShareAppMessage(() => shareInfo);
+
+onShareTimeline(() => shareInfo);
 // #endif
 </script>
 

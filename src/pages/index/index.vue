@@ -3,9 +3,13 @@
     <view class="cat-wrapper" v-for="cat in categories">
       <view class="cat-title">{{ cat.label }}</view>
       <view class="cat-items">
-        <view @click="jump(item.url)" class="cat-item" v-for="item in cat.items">
+        <view
+          @click="jump(item.url)"
+          class="cat-item"
+          v-for="item in cat.items"
+        >
           <view class="icon">
-            <image :src="item.icon || '/static/logo.png'"/>
+            <image :src="item.icon || '/static/logo.png'" />
           </view>
           <view class="detail">
             <view class="title">{{ item.title }}</view>
@@ -18,15 +22,24 @@
 </template>
 
 <script lang="ts" setup>
-import {categories} from "@/pages/index/categories";
+import { categories } from "@/pages/index/categories";
+import { onShareAppMessage, onShareTimeline } from "@dcloudio/uni-app";
 
+const shareInfo = {
+  url: "/pages/index/index",
+  title: "帮大忙工具箱",
+  desc: "亲戚计算，手持弹幕，二维码生成",
+};
+
+onShareAppMessage(() => shareInfo);
+
+onShareTimeline(() => shareInfo);
 
 function jump(to: string) {
   uni.navigateTo({
-    url: to
-  })
+    url: to,
+  });
 }
-
 </script>
 <style lang="scss">
 .index-wrapper.index-wrapper.index-wrapper {
@@ -44,7 +57,7 @@ function jump(to: string) {
     margin: 20rpx auto 0;
 
     &::after {
-      content: ' ';
+      content: " ";
       clear: both;
       display: block;
     }
@@ -103,9 +116,7 @@ function jump(to: string) {
     font-size: 22rpx;
     color: #999999;
     overflow: hidden;
+    word-break: break-all;
   }
-
 }
-
-
 </style>

@@ -5,27 +5,25 @@
     </view>
     <wd-message-box></wd-message-box>
   </view>
-
 </template>
 <script setup lang="ts">
-import {useMessage} from 'wot-design-uni'
+import { useMessage } from "wot-design-uni";
 
-const message = useMessage()
+const message = useMessage();
 const props = defineProps({
   desc: {
     type: String,
-    default: ''
-  }
-})
+    default: "",
+  },
+});
 
 function showDesc() {
   message.alert({
-    title: '工具介绍',
+    title: "工具介绍",
     msg: props.desc,
-    confirmButtonText: '我知道了',
-  })
+    confirmButtonText: "我知道了",
+  });
 }
-
 </script>
 
 <style lang="scss">

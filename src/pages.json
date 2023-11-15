@@ -4,7 +4,7 @@
     {
       "path": "pages/index/index",
       "style": {
-        "navigationBarTitleText": "帮帮忙工具箱"
+        "navigationBarTitleText": "帮大忙工具箱"
       }
     },
     //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
@@ -54,6 +54,20 @@
       "path": "pages/relativesname/relativesname",
       "style": {
         "navigationBarTitleText": "亲戚称呼计算器",
+        "enablePullDownRefresh": false
+      }
+    },
+    {
+      "path": "pages/urlencode/urlencode",
+      "style": {
+        "navigationBarTitleText": "url编解码",
+        "enablePullDownRefresh": false
+      }
+    },
+    {
+      "path": "pages/jsonbeautify/jsonbeautify",
+      "style": {
+        "navigationBarTitleText": "json格式化",
         "enablePullDownRefresh": false
       }
     }
