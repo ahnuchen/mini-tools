@@ -19,7 +19,6 @@ declare module '@vue/runtime-core' {
     WdDatetimePicker: typeof import('wot-design-uni/components/wd-datetime-picker/wd-datetime-picker.vue')['default']
     WdDatetimePickerView: typeof import('wot-design-uni/components/wd-datetime-picker-view/wd-datetime-picker-view.vue')['default']
     WdDivider: typeof import('wot-design-uni/components/wd-divider/wd-divider.vue')['default']
-    WdGrid: typeof import('wot-design-uni/components/wd-grid/wd-grid.vue')['default']
     WdIcon: typeof import('wot-design-uni/components/wd-icon/wd-icon.vue')['default']
     WdInput: typeof import('wot-design-uni/components/wd-input/wd-input.vue')['default']
     WdInputNumber: typeof import('wot-design-uni/components/wd-input-number/wd-input-number.vue')['default']
