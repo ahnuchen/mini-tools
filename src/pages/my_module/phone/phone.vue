@@ -22,7 +22,7 @@
             <view
               @tap="callPhone"
               class="widget"
-              :data-phone="item.phone[index]"
+              :data-phone="item.phone[index1]"
               hoverStartTime="10"
               hoverStayTime="100"
               v-for="(name, index1) in item.subName"
