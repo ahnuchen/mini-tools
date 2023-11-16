@@ -1,23 +1,29 @@
 <template>
   <view class="index-wrapper">
-    <view class="cat-wrapper" v-for="cat in categories">
+    <wd-grid
+      clickable
+      :gutter="10"
+      square
+      :column="4"
+      v-for="cat in categories"
+    >
       <view class="cat-title">{{ cat.label }}</view>
-      <view class="cat-items">
-        <view
-          @click="jump(item.url)"
-          class="cat-item"
-          v-for="item in cat.items"
-        >
+      <wd-grid-item
+        use-icon-slot
+        :text="item.title"
+        :url="item.url"
+        v-for="item in cat.items"
+        :key="item.url"
+        icon-size="52rpx"
+      >
+        <template #icon>
           <view class="icon">
             <image :src="item.icon || '/static/logo.png'" />
           </view>
-          <view class="detail">
-            <view class="title">{{ item.title }}</view>
-            <view class="desc">{{ item.shortDesc }}</view>
-          </view>
-        </view>
-      </view>
-    </view>
+          <!--          <image class="slot-img" :src="item.icon || '/static/logo.png'" />-->
+        </template>
+      </wd-grid-item>
+    </wd-grid>
   </view>
 </template>
 
@@ -36,6 +42,7 @@ onShareAppMessage(() => shareInfo);
 onShareTimeline(() => shareInfo);
 
 function jump(to: string) {
+  console.log(`%c jump`, "color: pink;font-size:20px;background:black;");
   uni.navigateTo({
     url: to,
   });
@@ -46,6 +53,7 @@ function jump(to: string) {
   height: calc(100vh - var(--window-top));
   height: calc(100vh - var(--window-top) - constant(safe-area-inset-bottom));
   height: calc(100vh - var(--window-top) - env(safe-area-inset-bottom));
+  overflow-y: auto;
   background: $uni-bg-color-grey;
   //background: #88bfa2;
   padding-top: 20rpx;
@@ -66,6 +74,7 @@ function jump(to: string) {
   .cat-title {
     font-size: 28rpx;
     color: $uni-text-color;
+    margin-bottom: 20rpx;
   }
 
   .cat-item {
@@ -87,8 +96,8 @@ function jump(to: string) {
   }
 
   .icon {
-    width: 70rpx;
-    height: 70rpx;
+    width: 50rpx;
+    height: 50rpx;
 
     image {
       width: 100%;

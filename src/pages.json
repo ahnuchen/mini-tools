@@ -15,13 +15,6 @@
       }
     },
     {
-      "path": "pages/mailcode/mailcode",
-      "style": {
-        "navigationBarTitleText": "",
-        "enablePullDownRefresh": false
-      }
-    },
-    {
       "path": "pages/temperaturetrans/temperaturetrans",
       "style": {
         "navigationBarTitleText": "温度转换",
@@ -70,6 +63,213 @@
         "navigationBarTitleText": "json格式化",
         "enablePullDownRefresh": false
       }
+    },
+    {
+      "path": "pages/my_module/get_image/index",
+      "style": {}
+    },
+    {
+      "path": "pages/my_module/flag/index",
+      "style": {}
+    },
+    {
+      "path": "pages/my_module/money/index",
+      "style": {}
+    },
+    {
+      "path": "pages/my_module/qh/index",
+      "style": {}
+    },
+    {
+      "path": "pages/my_module/calc/index",
+      "style": {}
+    },
+    {
+      "path": "pages/my_module/calc_mortgage/index",
+      "style": {
+        "navigationBarTitleText": "房贷计算器"
+      }
+    },
+    {
+      "path": "pages/my_module/calc_mortgage/detail",
+      "style": {
+        "navigationBarTitleText": "月供明细"
+      }
+    },
+    {
+      "path": "pages/my_module/bmi/bmi",
+      "style": {
+        "navigationBarTitleText": "BMI"
+      }
+    },
+    {
+      "path": "pages/my_module/screenshotConnect/screenshotConnect",
+      "style": {
+        "navigationBarTitleText": "图片拼接"
+      }
+    },
+    {
+      "path": "pages/my_module/screenshotConnect/showImage",
+      "style": {
+        "navigationBarTitleText": "截图拼接"
+      }
+    },
+    {
+      "path": "pages/my_module/danmu/danmu",
+      "style": {
+        "navigationBarTitleText": "手持弹幕"
+      }
+    },
+    {
+      "path": "pages/my_module/danmu/show_danmu",
+      "style": {
+        "navigationBarTitleText": ""
+      }
+    },
+    {
+      "path": "pages/my_module/ruler/ruler",
+      "style": {
+        "navigationBarTitleText": "尺子"
+      }
+    },
+    {
+      "path": "pages/my_module/cuttingNine/cuttingNine",
+      "style": {
+        "navigationBarTitleText": "九宫格切图"
+      }
+    },
+    {
+      "path": "pages/my_module/scanQrcode/scanQrcode",
+      "style": {
+        "navigationBarTitleText": "二维码转字符"
+      }
+    },
+    {
+      "path": "pages/my_module/calc_size/index",
+      "style": {
+        "navigationBarTitleText": "尺码计算器",
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#42BD56",
+        "navigationBarTextStyle": "white"
+      }
+    },
+    {
+      "path": "pages/my_module/ip_info/index",
+      "style": {}
+    },
+    {
+      "path": "pages/my_module/count_money/money",
+      "style": {
+        "navigationBarBackgroundColor": "#63c0b4",
+        "navigationBarTitleText": "数钱",
+        "navigationBarTextStyle": "white"
+      }
+    },
+    {
+      "path": "pages/my_module/blood/blood",
+      "style": {
+        "navigationBarTitleText": "子女血型查询",
+        "navigationBarTextStyle": "white",
+        "navigationBarBackgroundColor": "#63c0b4"
+      }
+    },
+    {
+      "path": "pages/my_module/zhendong/index",
+      "style": {
+        "navigationBarTitleText": "手机震动",
+        "navigationBarBackgroundColor": "#FF517F",
+        "navigationBarTextStyle": "white"
+      }
+    },
+    {
+      "path": "pages/my_module/lifeTime/lifeTime",
+      "style": {
+        "navigationBarTitleText": "一生时间",
+        "navigationBarTextStyle": "white",
+        "navigationBarBackgroundColor": "#8ac6d1"
+      }
+    },
+    {
+      "path": "pages/my_module/blind/blind",
+      "style": {
+        "navigationBarBackgroundColor": "#F06060",
+        "navigationBarTitleText": "色盲测试",
+        "navigationBarTextStyle": "white"
+      }
+    },
+    {
+      "path": "pages/my_module/clock/clock",
+      "style": {
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/my_module/countDown/countDown",
+      "style": {
+        "navigationBarTitleText": "倒计时",
+        "navigationBarBackgroundColor": "#333333",
+        "navigationBarTextStyle": "white"
+      }
+    },
+    {
+      "path": "pages/my_module/randomNum/randomNum",
+      "style": {
+        "disableScroll": true,
+        "navigationBarBackgroundColor": "#454545",
+        "navigationBarTitleText": "随机数字",
+        "navigationBarTextStyle": "white"
+      }
+    },
+    {
+      "path": "pages/my_module/phone/phone",
+      "style": {}
+    },
+    {
+      "path": "pages/my_module/protractor/protractor",
+      "style": {
+        "navigationBarTitleText": "量角器",
+        "navigationBarTextStyle": "white",
+        "navigationBarBackgroundColor": "#454545",
+        "disableScroll": true
+      }
+    },
+    {
+      "path": "pages/my_module/networkSpeed/networkSpeed",
+      "style": {
+        "navigationBarTitleText": "网速测试工具",
+        "navigationBarBackgroundColor": "#4ac05e",
+        "navigationBarTextStyle": "white"
+      }
+    },
+    {
+      "path": "pages/my_module/crypt/crypt",
+      "style": {
+        "navigationBarTitleText": "文本加密",
+        "navigationBarTextStyle": "white",
+        "navigationBarBackgroundColor": "#63c0b4"
+      }
+    },
+    {
+      "path": "pages/my_module/crypt/decrypt",
+      "style": {
+        "navigationBarTitleText": "文本解密",
+        "navigationBarTextStyle": "white",
+        "navigationBarBackgroundColor": "#63c0b4"
+      }
+    },
+    {
+      "path": "pages/my_module/phoneAlbum/index",
+      "style": {
+        "navigationBarTitleText": "带壳截图"
+      }
+    },
+    {
+      "path": "pages/my_module/phoneAlbum/display/index",
+      "style": {}
+    },
+    {
+      "path": "pages/my_module/phoneAlbum/success/index",
+      "style": {}
     }
   ],
   "globalStyle": {
