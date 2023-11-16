@@ -54,6 +54,8 @@ function jump(to: string) {
   height: calc(100vh - var(--window-top) - constant(safe-area-inset-bottom));
   height: calc(100vh - var(--window-top) - env(safe-area-inset-bottom));
   overflow-y: auto;
+  padding-bottom: 40rpx;
+  -webkit-overflow-scrolling: touch;
   background: $uni-bg-color-grey;
   //background: #88bfa2;
   padding-top: 20rpx;
@@ -73,7 +75,7 @@ function jump(to: string) {
 
   .cat-title {
     font-size: 28rpx;
-    color: $uni-text-color;
+    color: $uni-text-color-grey;
     margin-bottom: 20rpx;
   }
 

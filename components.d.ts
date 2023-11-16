@@ -10,6 +10,7 @@ export {}
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     FloatBtn: typeof import('./src/components/FloatBtn.vue')['default']
+    WdActionSheet: typeof import('wot-design-uni/components/wd-action-sheet/wd-action-sheet.vue')['default']
     WdBadge: typeof import('wot-design-uni/components/wd-badge/wd-badge.vue')['default']
     WdButton: typeof import('wot-design-uni/components/wd-button/wd-button.vue')['default']
     WdCard: typeof import('wot-design-uni/components/wd-card/wd-card.vue')['default']

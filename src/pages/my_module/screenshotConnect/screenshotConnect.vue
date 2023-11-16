@@ -1,6 +1,5 @@
 <template>
   <view class="images" v-if="!isRelease">
-    <!-- <ad unit-id="{{bannerUnitId}}" ad-intervals="30"></ad> -->
     <view
       @tap="changePreview"
       class="preview-image"
@@ -14,23 +13,29 @@
       :key="index"
     >
       <view @tap.stop.prevent="removeImage" class="remove" :data-index="index"
-        >移除{{ index + 1 }}</view
-      >
+        >移除{{ index + 1 }}
+      </view>
     </view>
     <view
-      @tap="previewImage"
+      @tap="showActions"
       class="select-image"
       hoverClass="select-image-hover"
-      >选择图片</view
-    >
+      >选择图片
+    </view>
     <view class="bottom-tab">
       <view @tap="goToPage" class="tabBtn" data-direction="horizontal"
-        >横向拼接</view
-      >
+        >横向拼接
+      </view>
       <view @tap="goToPage" class="tabBtn" data-direction="vertical"
-        >竖向拼接</view
-      >
+        >竖向拼接
+      </view>
     </view>
+    <wd-action-sheet
+      v-model="show"
+      :actions="actions"
+      @close="close"
+      @select="select"
+    />
   </view>
 </template>
 
@@ -42,6 +47,18 @@ export default {
       bannerUnitId: getApp().globalData.bannerUnitId,
       imageInfo: [],
       imageUrls: [],
+      actions: [
+        {
+          name: "拍照",
+        },
+        {
+          name: "从相册选择",
+        },
+        {
+          name: "从聊天记录选择",
+        },
+      ],
+      show: false,
     };
   },
   onLoad() {
@@ -58,15 +75,75 @@ export default {
   },
   onShareTimeline: function () {},
   methods: {
-    previewImage: function (e) {
+    showActions: function () {
+      this.setData({
+        show: true,
+      });
+    },
+    close: function () {
+      this.setData({
+        show: false,
+      });
+    },
+
+    select: function ({ item, index }) {
+      switch (index) {
+        case 0:
+          {
+            this.chooseFromPhoto();
+          }
+          break;
+        case 1:
+          {
+            this.chooseFromAlbum();
+          }
+          break;
+        case 2:
+          {
+            this.chooseFromMessageFile();
+          }
+          break;
+        default: {
+          this.chooseFromAlbum();
+        }
+      }
+    },
+
+    onChooseSuccess: function (e) {
+      var that = this;
+      for (var t = 0; t < (e.tempFilePaths || e.tempFiles).length; t++) {
+        let fileInfo = (e.tempFilePaths || e.tempFiles)[t];
+        if (typeof fileInfo !== "string") {
+          fileInfo = fileInfo.path;
+        }
+        that.getImageInfo(fileInfo);
+      }
+    },
+
+    chooseFromAlbum: function (e) {
       var that = this;
       uni.chooseImage({
         count: 9,
-        success: function (e) {
-          for (var t = 0; t < e.tempFilePaths.length; t++) {
-            that.getImageInfo(e.tempFilePaths[t]);
-          }
-        },
+        sourceType: ["album"],
+        success: that.onChooseSuccess,
+      });
+    },
+
+    chooseFromPhoto: function (e) {
+      var that = this;
+      uni.chooseImage({
+        sourceType: ["camera"],
+        count: 9,
+        success: that.onChooseSuccess,
+      });
+    },
+
+    chooseFromMessageFile: function (e) {
+      var that = this;
+      uni.chooseMessageFile({
+        type: "image",
+        count: 9,
+        success: that.onChooseSuccess,
       });
     },
 
@@ -181,7 +258,7 @@ page {
 
 .bottom-tab {
   position: fixed;
-  z-index: 99;
+  z-index: 2;
   bottom: 0;
   left: 0;
   font-size: 30rpx;

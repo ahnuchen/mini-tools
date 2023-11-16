@@ -155,27 +155,27 @@ export default {
         {
           selectedSrcIndex: 0,
           selectedSrc:
-            "https://yp.jinjinyl.cn/ymimg/iphone-11-pro-max-silver.png",
+            "https://xue.ccy1994.top/xiaochengxu/mini-tools/static/images/phoneAlbum/iphone-11-pro-max-silver.png",
           srcs: [
             {
               name: "银 色",
-              src: "https://yp.jinjinyl.cn/ymimg/iphone-11-pro-max-silver.png",
+              src: "https://xue.ccy1994.top/xiaochengxu/mini-tools/static/images/phoneAlbum/iphone-11-pro-max-silver.png",
               checked: "true",
               isCDN: "true",
             },
             {
               name: "深空灰",
-              src: "https://yp.jinjinyl.cn/ymimg/iphone-11-pro-max-space-gray.png",
+              src: "https://xue.ccy1994.top/xiaochengxu/mini-tools/static/images/phoneAlbum/iphone-11-pro-max-space-gray.png",
               isCDN: "true",
             },
             {
               name: "金 色",
-              src: "https://yp.jinjinyl.cn/ymimg/iphone-11-pro-max-gold.png",
+              src: "https://xue.ccy1994.top/xiaochengxu/mini-tools/static/images/phoneAlbum/iphone-11-pro-max-gold.png",
               isCDN: "true",
             },
             {
               name: "无刘海",
-              src: "https://yp.jinjinyl.cn/ymimg/iphone-11-pro-max-no.png",
+              src: "https://xue.ccy1994.top/xiaochengxu/mini-tools/static/images/phoneAlbum/iphone-11-pro-max-no.png",
               isCDN: "true",
             },
           ],
@@ -186,17 +186,18 @@ export default {
         },
         {
           selectedSrcIndex: 0,
-          selectedSrc: "https://yp.jinjinyl.cn/ymimg/iphone-11-pro-desk-2.png",
+          selectedSrc:
+            "https://xue.ccy1994.top/xiaochengxu/mini-tools/static/images/phoneAlbum/iphone-11-pro-desk-2.png",
           srcs: [
             {
               name: "带刘海",
-              src: "https://yp.jinjinyl.cn/ymimg/iphone-11-pro-desk-2.png",
+              src: "https://xue.ccy1994.top/xiaochengxu/mini-tools/static/images/phoneAlbum/iphone-11-pro-desk-2.png",
               checked: "true",
               isCDN: "true",
             },
             {
               name: "无刘海",
-              src: "https://yp.jinjinyl.cn/ymimg/iphone-11-pro-desk-no.png",
+              src: "https://xue.ccy1994.top/xiaochengxu/mini-tools/static/images/phoneAlbum/iphone-11-pro-desk-no.png",
               isCDN: "true",
             },
           ],
@@ -208,17 +209,17 @@ export default {
         {
           selectedSrcIndex: 0,
           selectedSrc:
-            "https://yp.jinjinyl.cn/ymimg/iphone-11-pro-max-in-hand-01.png",
+            "https://xue.ccy1994.top/xiaochengxu/mini-tools/static/images/phoneAlbum/iphone-11-pro-max-in-hand-01.png",
           srcs: [
             {
               name: "带刘海",
-              src: "https://yp.jinjinyl.cn/ymimg/iphone-11-pro-max-in-hand-01.png",
+              src: "https://xue.ccy1994.top/xiaochengxu/mini-tools/static/images/phoneAlbum/iphone-11-pro-max-in-hand-01.png",
               checked: "true",
               isCDN: "true",
             },
             {
               name: "无刘海",
-              src: "https://yp.jinjinyl.cn/ymimg/iphone-11-pro-max-in-hand-01-no.png",
+              src: "https://xue.ccy1994.top/xiaochengxu/mini-tools/static/images/phoneAlbum/iphone-11-pro-max-in-hand-01-no.png",
               isCDN: "true",
             },
           ],
@@ -230,17 +231,17 @@ export default {
         {
           selectedSrcIndex: 0,
           selectedSrc:
-            "https://yp.jinjinyl.cn/ymimg/iphone-11-pro-max-in-hand-02.png",
+            "https://xue.ccy1994.top/xiaochengxu/mini-tools/static/images/phoneAlbum/iphone-11-pro-max-in-hand-02.png",
           srcs: [
             {
               name: "带刘海",
-              src: "https://yp.jinjinyl.cn/ymimg/iphone-11-pro-max-in-hand-02.png",
+              src: "https://xue.ccy1994.top/xiaochengxu/mini-tools/static/images/phoneAlbum/iphone-11-pro-max-in-hand-02.png",
               checked: "true",
               isCDN: "true",
             },
             {
               name: "无刘海",
-              src: "https://yp.jinjinyl.cn/ymimg/iphone-11-pro-max-in-hand-02-no.png",
+              src: "https://xue.ccy1994.top/xiaochengxu/mini-tools/static/images/phoneAlbum/iphone-11-pro-max-in-hand-02-no.png",
               isCDN: "true",
             },
           ],
@@ -252,17 +253,17 @@ export default {
         {
           selectedSrcIndex: 0,
           selectedSrc:
-            "https://yp.jinjinyl.cn/ymimg/iphone-11-pro-max-plants.png",
+            "https://xue.ccy1994.top/xiaochengxu/mini-tools/static/images/phoneAlbum/iphone-11-pro-max-plants.png",
           srcs: [
             {
               name: "带刘海",
-              src: "https://yp.jinjinyl.cn/ymimg/iphone-11-pro-max-plants.png",
+              src: "https://xue.ccy1994.top/xiaochengxu/mini-tools/static/images/phoneAlbum/iphone-11-pro-max-plants.png",
               checked: "true",
               isCDN: "true",
             },
             {
               name: "无刘海",
-              src: "https://yp.jinjinyl.cn/ymimg/iphone-11-pro-max-plants-no.png",
+              src: "https://xue.ccy1994.top/xiaochengxu/mini-tools/static/images/phoneAlbum/iphone-11-pro-max-plants-no.png",
               isCDN: "true",
             },
           ],
@@ -274,17 +275,17 @@ export default {
         {
           selectedSrcIndex: 0,
           selectedSrc:
-            "https://yp.jinjinyl.cn/ymimg/iphone-11-pro-max-card.png",
+            "https://xue.ccy1994.top/xiaochengxu/mini-tools/static/images/phoneAlbum/iphone-11-pro-max-card.png",
           srcs: [
             {
               name: "带刘海",
-              src: "https://yp.jinjinyl.cn/ymimg/iphone-11-pro-max-card.png",
+              src: "https://xue.ccy1994.top/xiaochengxu/mini-tools/static/images/phoneAlbum/iphone-11-pro-max-card.png",
               checked: "true",
               isCDN: "true",
             },
             {
               name: "无刘海",
-              src: "https://yp.jinjinyl.cn/ymimg/iphone-11-pro-max-card-no.png",
+              src: "https://xue.ccy1994.top/xiaochengxu/mini-tools/static/images/phoneAlbum/iphone-11-pro-max-card-no.png",
               isCDN: "true",
             },
           ],
@@ -295,32 +296,33 @@ export default {
         },
         {
           selectedSrcIndex: 0,
-          selectedSrc: "https://yp.jinjinyl.cn/ymimg/iphone-11-white.png",
+          selectedSrc:
+            "https://xue.ccy1994.top/xiaochengxu/mini-tools/static/images/phoneAlbum/iphone-11-white.png",
           srcs: [
             {
               name: "白 色",
-              src: "https://yp.jinjinyl.cn/ymimg/iphone-11-white.png",
+              src: "https://xue.ccy1994.top/xiaochengxu/mini-tools/static/images/phoneAlbum/iphone-11-white.png",
               checked: "true",
               isCDN: "true",
             },
             {
               name: "黑 色",
-              src: "https://yp.jinjinyl.cn/ymimg/iphone-11-black.png",
+              src: "https://xue.ccy1994.top/xiaochengxu/mini-tools/static/images/phoneAlbum/iphone-11-black.png",
               isCDN: "true",
             },
             {
               name: "红 色",
-              src: "https://yp.jinjinyl.cn/ymimg/iphone-11-red.png",
+              src: "https://xue.ccy1994.top/xiaochengxu/mini-tools/static/images/phoneAlbum/iphone-11-red.png",
               isCDN: "true",
             },
             {
               name: "黄 色",
-              src: "https://yp.jinjinyl.cn/ymimg/iphone-11-yellow.png",
+              src: "https://xue.ccy1994.top/xiaochengxu/mini-tools/static/images/phoneAlbum/iphone-11-yellow.png",
               isCDN: "true",
             },
             {
               name: "无刘海",
-              src: "https://yp.jinjinyl.cn/ymimg/iphone-11-black-no.png",
+              src: "https://xue.ccy1994.top/xiaochengxu/mini-tools/static/images/phoneAlbum/iphone-11-black-no.png",
               isCDN: "true",
             },
           ],
@@ -331,22 +333,23 @@ export default {
         },
         {
           selectedSrcIndex: 0,
-          selectedSrc: "https://yp.jinjinyl.cn/ymimg/iphone-8-plus-grey.png",
+          selectedSrc:
+            "https://xue.ccy1994.top/xiaochengxu/mini-tools/static/images/phoneAlbum/iphone-8-plus-grey.png",
           srcs: [
             {
               name: "黑 色",
-              src: "https://yp.jinjinyl.cn/ymimg/iphone-8-plus-grey.png",
+              src: "https://xue.ccy1994.top/xiaochengxu/mini-tools/static/images/phoneAlbum/iphone-8-plus-grey.png",
               checked: "true",
               isCDN: "true",
             },
             {
               name: "银 色",
-              src: "https://yp.jinjinyl.cn/ymimg/iphone-8-plus-silver.png",
+              src: "https://xue.ccy1994.top/xiaochengxu/mini-tools/static/images/phoneAlbum/iphone-8-plus-silver.png",
               isCDN: "true",
             },
             {
               name: "金 色",
-              src: "https://yp.jinjinyl.cn/ymimg/iphone-8-plus-gold.png",
+              src: "https://xue.ccy1994.top/xiaochengxu/mini-tools/static/images/phoneAlbum/iphone-8-plus-gold.png",
               isCDN: "true",
             },
           ],
@@ -357,27 +360,28 @@ export default {
         },
         {
           selectedSrcIndex: 0,
-          selectedSrc: "https://yp.jinjinyl.cn/ymimg/iphone-se-space-gray.png",
+          selectedSrc:
+            "https://xue.ccy1994.top/xiaochengxu/mini-tools/static/images/phoneAlbum/iphone-se-space-gray.png",
           srcs: [
             {
               name: "深空灰",
-              src: "https://yp.jinjinyl.cn/ymimg/iphone-se-space-gray.png",
+              src: "https://xue.ccy1994.top/xiaochengxu/mini-tools/static/images/phoneAlbum/iphone-se-space-gray.png",
               checked: "true",
               isCDN: "true",
             },
             {
               name: "玫瑰金",
-              src: "https://yp.jinjinyl.cn/ymimg/iphone-se-rose-gold.png",
+              src: "https://xue.ccy1994.top/xiaochengxu/mini-tools/static/images/phoneAlbum/iphone-se-rose-gold.png",
               isCDN: "true",
             },
             {
               name: "金 色",
-              src: "https://yp.jinjinyl.cn/ymimg/iphone-se-gold.png",
+              src: "https://xue.ccy1994.top/xiaochengxu/mini-tools/static/images/phoneAlbum/iphone-se-gold.png",
               isCDN: "true",
             },
             {
               name: "银 色",
-              src: "https://yp.jinjinyl.cn/ymimg/iphone-se-gold.png",
+              src: "https://xue.ccy1994.top/xiaochengxu/mini-tools/static/images/phoneAlbum/iphone-se-gold.png",
               isCDN: "true",
             },
           ],
@@ -388,17 +392,18 @@ export default {
         },
         {
           selectedSrcIndex: 0,
-          selectedSrc: "https://yp.jinjinyl.cn/ymimg/huawei-mate30.png",
+          selectedSrc:
+            "https://xue.ccy1994.top/xiaochengxu/mini-tools/static/images/phoneAlbum/huawei-mate30.png",
           srcs: [
             {
               name: "带刘海",
-              src: "https://yp.jinjinyl.cn/ymimg/huawei-mate30.png",
+              src: "https://xue.ccy1994.top/xiaochengxu/mini-tools/static/images/phoneAlbum/huawei-mate30.png",
               isCDN: "true",
               checked: "true",
             },
             {
               name: "无刘海",
-              src: "https://yp.jinjinyl.cn/ymimg/huawei-mate30-no.png",
+              src: "https://xue.ccy1994.top/xiaochengxu/mini-tools/static/images/phoneAlbum/huawei-mate30-no.png",
               isCDN: "true",
             },
           ],
@@ -410,17 +415,17 @@ export default {
         {
           selectedSrcIndex: 0,
           selectedSrc:
-            "https://yp.jinjinyl.cn/ymimg/xiaomi-10-pro-sky-blue.png",
+            "https://xue.ccy1994.top/xiaochengxu/mini-tools/static/images/phoneAlbum/xiaomi-10-pro-sky-blue.png",
           srcs: [
             {
               name: "星空蓝",
-              src: "https://yp.jinjinyl.cn/ymimg/xiaomi-10-pro-sky-blue.png",
+              src: "https://xue.ccy1994.top/xiaochengxu/mini-tools/static/images/phoneAlbum/xiaomi-10-pro-sky-blue.png",
               checked: "true",
               isCDN: "true",
             },
             {
               name: "无摄像头",
-              src: "https://yp.jinjinyl.cn/ymimg/xiaomi-10-pro-sky-blue-no.png",
+              src: "https://xue.ccy1994.top/xiaochengxu/mini-tools/static/images/phoneAlbum/xiaomi-10-pro-sky-blue-no.png",
               isCDN: "true",
             },
           ],
@@ -431,11 +436,12 @@ export default {
         },
         {
           selectedSrcIndex: 0,
-          selectedSrc: "https://yp.jinjinyl.cn/ymimg/xiaomi-mix-3-no.png",
+          selectedSrc:
+            "https://xue.ccy1994.top/xiaochengxu/mini-tools/static/images/phoneAlbum/xiaomi-mix-3-no.png",
           srcs: [
             {
               name: "无后盖",
-              src: "https://yp.jinjinyl.cn/ymimg/xiaomi-mix-3-no.png",
+              src: "https://xue.ccy1994.top/xiaochengxu/mini-tools/static/images/phoneAlbum/xiaomi-mix-3-no.png",
               checked: "true",
               isCDN: "true",
             },
@@ -447,17 +453,18 @@ export default {
         },
         {
           selectedSrcIndex: 0,
-          selectedSrc: "https://yp.jinjinyl.cn/ymimg/xiaomi-mix-3-palace.png",
+          selectedSrc:
+            "https://xue.ccy1994.top/xiaochengxu/mini-tools/static/images/phoneAlbum/xiaomi-mix-3-palace.png",
           srcs: [
             {
               name: "故宫版",
-              src: "https://yp.jinjinyl.cn/ymimg/xiaomi-mix-3-palace.png",
+              src: "https://xue.ccy1994.top/xiaochengxu/mini-tools/static/images/phoneAlbum/xiaomi-mix-3-palace.png",
               checked: "true",
               isCDN: "true",
             },
             {
               name: "经典黑",
-              src: "https://yp.jinjinyl.cn/ymimg/xiaomi-mix-3-black.png",
+              src: "https://xue.ccy1994.top/xiaochengxu/mini-tools/static/images/phoneAlbum/xiaomi-mix-3-black.png",
               isCDN: "true",
             },
           ],
@@ -468,11 +475,12 @@ export default {
         },
         {
           selectedSrcIndex: 0,
-          selectedSrc: "https://yp.jinjinyl.cn/ymimg/xiaomi-mix-alpho-2.png",
+          selectedSrc:
+            "https://xue.ccy1994.top/xiaochengxu/mini-tools/static/images/phoneAlbum/xiaomi-mix-alpho-2.png",
           srcs: [
             {
               name: "星空蓝",
-              src: "https://yp.jinjinyl.cn/ymimg/xiaomi-mix-alpho-2.png",
+              src: "https://xue.ccy1994.top/xiaochengxu/mini-tools/static/images/phoneAlbum/xiaomi-mix-alpho-2.png",
               checked: "true",
               isCDN: "true",
             },
@@ -484,17 +492,18 @@ export default {
         },
         {
           selectedSrcIndex: 0,
-          selectedSrc: "https://yp.jinjinyl.cn/ymimg/oppo-reno3-pro.png",
+          selectedSrc:
+            "https://xue.ccy1994.top/xiaochengxu/mini-tools/static/images/phoneAlbum/oppo-reno3-pro.png",
           srcs: [
             {
               name: "日出印象",
-              src: "https://yp.jinjinyl.cn/ymimg/oppo-reno3-pro.png",
+              src: "https://xue.ccy1994.top/xiaochengxu/mini-tools/static/images/phoneAlbum/oppo-reno3-pro.png",
               isCDN: "true",
               checked: "true",
             },
             {
               name: "无摄像头",
-              src: "https://yp.jinjinyl.cn/ymimg/oppo-reno3-pro-no.png",
+              src: "https://xue.ccy1994.top/xiaochengxu/mini-tools/static/images/phoneAlbum/oppo-reno3-pro-no.png",
               isCDN: "true",
             },
           ],
@@ -505,11 +514,12 @@ export default {
         },
         {
           selectedSrcIndex: 0,
-          selectedSrc: "https://yp.jinjinyl.cn/ymimg/one-plus7-pro-black.png",
+          selectedSrc:
+            "https://xue.ccy1994.top/xiaochengxu/mini-tools/static/images/phoneAlbum/one-plus7-pro-black.png",
           srcs: [
             {
               name: "黑 色",
-              src: "https://yp.jinjinyl.cn/ymimg/one-plus7-pro-black.png",
+              src: "https://xue.ccy1994.top/xiaochengxu/mini-tools/static/images/phoneAlbum/one-plus7-pro-black.png",
               isCDN: "true",
               checked: "true",
             },
@@ -522,17 +532,17 @@ export default {
         {
           selectedSrcIndex: 0,
           selectedSrc:
-            "https://yp.jinjinyl.cn/ymimg/samsung-galaxy-note-10.png",
+            "https://xue.ccy1994.top/xiaochengxu/mini-tools/static/images/phoneAlbum/samsung-galaxy-note-10.png",
           srcs: [
             {
               name: "星空蓝",
-              src: "https://yp.jinjinyl.cn/ymimg/samsung-galaxy-note-10.png",
+              src: "https://xue.ccy1994.top/xiaochengxu/mini-tools/static/images/phoneAlbum/samsung-galaxy-note-10.png",
               isCDN: "true",
               checked: "true",
             },
             {
               name: "无摄像头",
-              src: "https://yp.jinjinyl.cn/ymimg/samsung-galaxy-note-10-no.png",
+              src: "https://xue.ccy1994.top/xiaochengxu/mini-tools/static/images/phoneAlbum/samsung-galaxy-note-10-no.png",
               isCDN: "true",
             },
           ],
@@ -544,17 +554,17 @@ export default {
         {
           selectedSrcIndex: 0,
           selectedSrc:
-            "https://yp.jinjinyl.cn/ymimg/samsung-galaxy-s10-silver.png",
+            "https://xue.ccy1994.top/xiaochengxu/mini-tools/static/images/phoneAlbum/samsung-galaxy-s10-silver.png",
           srcs: [
             {
               name: "黑  色",
-              src: "https://yp.jinjinyl.cn/ymimg/samsung-galaxy-s10-silver.png",
+              src: "https://xue.ccy1994.top/xiaochengxu/mini-tools/static/images/phoneAlbum/samsung-galaxy-s10-silver.png",
               isCDN: "true",
               checked: "true",
             },
             {
               name: "无摄像头",
-              src: "https://yp.jinjinyl.cn/ymimg/samsung-galaxy-s10-silver-no.png",
+              src: "https://xue.ccy1994.top/xiaochengxu/mini-tools/static/images/phoneAlbum/samsung-galaxy-s10-silver-no.png",
               isCDN: "true",
             },
           ],
@@ -566,11 +576,11 @@ export default {
         {
           selectedSrcIndex: 0,
           selectedSrc:
-            "https://yp.jinjinyl.cn/ymimg/apple-watch-42mm-silver.png",
+            "https://xue.ccy1994.top/xiaochengxu/mini-tools/static/images/phoneAlbum/apple-watch-42mm-silver.png",
           srcs: [
             {
               name: "银 蓝",
-              src: "https://yp.jinjinyl.cn/ymimg/apple-watch-42mm-silver.png",
+              src: "https://xue.ccy1994.top/xiaochengxu/mini-tools/static/images/phoneAlbum/apple-watch-42mm-silver.png",
               isCDN: "true",
               checked: "true",
             },
@@ -608,7 +618,8 @@ export default {
       path: "/pagesA/pages/album/index",
       title: "推荐使用【有料工具】截图、壁纸分享必备小程序",
       desc: "让您轻松的把截图套上手机壳，再分享截图、壁纸或者App给好友呢！",
-      imageUrl: "https://cdn.uiunion.cn/screenshot/images/images-share.png",
+      imageUrl:
+        "https://xue.ccy1994.top/xiaochengxu/mini-tools/static/images/images-share.png",
     };
   },
   onReady: function () {

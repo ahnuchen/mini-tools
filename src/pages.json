@@ -81,10 +81,6 @@
       "style": {}
     },
     {
-      "path": "pages/my_module/calc/index",
-      "style": {}
-    },
-    {
       "path": "pages/my_module/calc_mortgage/index",
       "style": {
         "navigationBarTitleText": "房贷计算器"

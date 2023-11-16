@@ -14,8 +14,8 @@
     <view class="text">
       <text
         >让您轻松的把截图套上手机壳，支持iPhone，华为，小米，OPPO,
-        三星，Watch等设备哦！更多机型持续更新中...</text
-      >
+        三星，Watch等设备哦！更多机型持续更新中...
+      </text>
     </view>
   </view>
   <!-- <view style="margin-top:10px ;" wx:if="{{appConfig.ad.wxcustom}}">
@@ -34,7 +34,8 @@ export default {
   onShareTimeline: function () {
     return {
       title: "推荐使用潮人截图、壁纸分享必备小程序",
-      imageUrl: "https://cdn.uiunion.cn/screenshot/images/images-share.png",
+      imageUrl:
+        "https://xue.ccy1994.top/xiaochengxu/mini-tools/static/images/images-share.png",
     };
   },
   onShareAppMessage: function () {
@@ -42,7 +43,8 @@ export default {
       path: "/pagesA/pages/album/index",
       title: "推荐使用潮人截图、壁纸分享必备小程序",
       desc: "让您轻松的把截图套上手机壳，再分享截图、壁纸或者App给好友呢！",
-      imageUrl: "https://cdn.uiunion.cn/screenshot/images/images-share.png",
+      imageUrl:
+        "https://xue.ccy1994.top/xiaochengxu/mini-tools/static/images/images-share.png",
     };
   },
   onLoad: function (a) {

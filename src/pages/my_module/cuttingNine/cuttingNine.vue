@@ -1,7 +1,7 @@
 <template>
   <view v-if="!isRelease">
     <view>
-      <button @tap="chooseImage" class="button" hoverClass="button-hover">
+      <button @tap="showActions" class="button" hoverClass="button-hover">
         选择图片
       </button>
       <image
@@ -55,6 +55,12 @@
       ></canvas>
     </view>
     <!-- <ad unit-id="{{bannerUnitId}}" ad-intervals="30" style="position: fixed; bottom: 50rpx;" /> -->
+    <wd-action-sheet
+      v-model="show"
+      :actions="actions"
+      @close="close"
+      @select="select"
+    />
   </view>
 </template>
 
@@ -79,6 +85,18 @@ export default {
       },
       img: "",
       isChoose: false,
+      actions: [
+        {
+          name: "拍照",
+        },
+        {
+          name: "从相册选择",
+        },
+        {
+          name: "从聊天记录选择",
+        },
+      ],
+      show: false,
     };
   },
   onLoad: function (t) {
@@ -158,24 +176,83 @@ export default {
         that,
       );
     },
+    showActions: function () {
+      this.setData({
+        show: true,
+      });
+    },
+    close: function () {
+      this.setData({
+        show: false,
+      });
+    },
 
-    chooseImage: function (t) {
+    select: function ({ item, index }) {
+      switch (index) {
+        case 0:
+          {
+            this.chooseFromPhoto();
+          }
+          break;
+        case 1:
+          {
+            this.chooseFromAlbum();
+          }
+          break;
+        case 2:
+          {
+            this.chooseFromMessageFile();
+          }
+          break;
+        default: {
+          this.chooseFromAlbum();
+        }
+      }
+    },
+
+    chooseFromAlbum: function (e) {
       var that = this;
       uni.chooseImage({
         count: 1,
-        sizeType: ["compressed"],
-        success: function (t) {
-          that.setData({
-            img: t.tempFilePaths[0],
-            isChoose: true,
-          });
-          that.cutImage(t.tempFilePaths[0]);
-          uni.showToast({
-            title: "点击图片预览,再长按即可保存!",
-            icon: "none",
-          });
-        },
+        sourceType: ["album"],
+        success: that.onChooseSuccess,
       });
+    },
+
+    chooseFromPhoto: function (e) {
+      var that = this;
+      uni.chooseImage({
+        sourceType: ["camera"],
+        count: 1,
+        success: that.onChooseSuccess,
+      });
+    },
+
+    chooseFromMessageFile: function (e) {
+      var that = this;
+      uni.chooseMessageFile({
+        type: "image",
+        count: 1,
+        success: that.onChooseSuccess,
+      });
+    },
+    onChooseSuccess: function (e) {
+      var that = this;
+      for (var t = 0; t < (e.tempFilePaths || e.tempFiles).length; t++) {
+        let fileInfo = (e.tempFilePaths || e.tempFiles)[t];
+        if (typeof fileInfo !== "string") {
+          fileInfo = fileInfo.path;
+        }
+        that.setData({
+          img: fileInfo,
+          isChoose: true,
+        });
+        that.cutImage(fileInfo);
+        uni.showToast({
+          title: "点击图片预览,再长按即可保存!",
+          icon: "none",
+        });
+      }
     },
   },
 };

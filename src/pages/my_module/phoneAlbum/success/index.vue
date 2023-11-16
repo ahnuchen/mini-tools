@@ -54,7 +54,8 @@ export default {
       path: "/pages/my_module/phoneAlbum/index",
       title: "潮人截图、壁纸分享必备小程序",
       desc: "让您轻松的把截图套上手机壳，再分享截图、壁纸或者App给好友呢！",
-      imageUrl: "https://cdn.uiunion.cn/screenshot/images/images-share.png",
+      imageUrl:
+        "https://xue.ccy1994.top/xiaochengxu/mini-tools/static/images/images-share.png",
     };
   },
   methods: {
