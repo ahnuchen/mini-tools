@@ -30,21 +30,21 @@
             >
               <text
                 @tap="callPhone"
-                :data-phone="item.phone[index]"
+                :data-phone="item.phone[index1]"
                 class="widget__name"
                 >{{ name }}
               </text>
 
               <text
                 @tap="callPhone"
-                :data-phone="item.phone[index]"
+                :data-phone="item.phone[index1]"
                 class="phoneText"
-                >{{ item.phone[index] }}
+                >{{ item.phone[index1] }}
               </text>
 
               <image
                 @tap="callPhone"
-                :data-phone="item.phone[index]"
+                :data-phone="item.phone[index1]"
                 class="widget__arrow"
                 mode="aspectFill"
                 src="http://xue.ccy1994.top/xiaochengxu/mini-tools/static/pages/my_module/phone/phone.png"
@@ -52,9 +52,9 @@
 
               <view
                 @tap="callPhone"
-                :data-phone="item.phone[index]"
+                :data-phone="item.phone[index1]"
                 :class="
-                  'widget__line ' + (index == 0 ? 'widget__line_first' : '')
+                  'widget__line' + (index1 == 0 ? ' widget__line_first' : '')
                 "
               ></view>
             </view>
