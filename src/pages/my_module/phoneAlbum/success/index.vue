@@ -24,9 +24,6 @@
     >
       分享好友
     </button>
-    <!-- <view style="margin-top:48rpx">
-      <ad-custom unit-id="adunit-6af8aa93e20539e2" ></ad-custom>
-    </view> -->
   </view>
 </template>
 
@@ -41,9 +38,9 @@ export default {
   },
   onReady: function () {},
   onShow: function () {
-    n.show().catch(function (n) {
-      console.error(n);
-    });
+    // n.show().catch(function (n) {
+    //   console.error(n);
+    // });
   },
   onHide: function () {},
   onUnload: function () {},
@@ -60,19 +57,19 @@ export default {
   },
   methods: {
     onLoadClone3389: function (o) {
-      if (uni.createInterstitialAd) {
-        (n = uni.createInterstitialAd({
-          adUnitId: "adunit-46faf356d01e8f5d",
-        })).onLoad(function () {
-          console.log("onLoad event emit");
-        });
-        n.onError(function (n) {
-          console.log("onError event emit", n);
-        });
-        n.onClose(function (n) {
-          console.log("onClose event emit", n);
-        });
-      }
+      // if (uni.createInterstitialAd) {
+      //   (n = uni.createInterstitialAd({
+      //     adUnitId: "adunit-46faf356d01e8f5d",
+      //   })).onLoad(function () {
+      //     console.log("onLoad event emit");
+      //   });
+      //   n.onError(function (n) {
+      //     console.log("onError event emit", n);
+      //   });
+      //   n.onClose(function (n) {
+      //     console.log("onClose event emit", n);
+      //   });
+      // }
     },
 
     goAlbum: function () {

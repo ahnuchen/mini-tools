@@ -2,6 +2,8 @@
   <view>
     <canvas
       canvasId="myCanvas"
+      canvas-id="myCanvas"
+      id="myCanvas"
       :style="
         'position:fixed; left:100%; width:' +
         canvasWidth +
@@ -615,7 +617,7 @@ export default {
   },
   onShareAppMessage: function () {
     return {
-      path: "/pagesA/pages/album/index",
+      path: "/pages/my_module/phoneAlbum/index",
       title: "推荐使用【有料工具】截图、壁纸分享必备小程序",
       desc: "让您轻松的把截图套上手机壳，再分享截图、壁纸或者App给好友呢！",
       imageUrl:
@@ -623,19 +625,19 @@ export default {
     };
   },
   onReady: function () {
-    if (uni.createInterstitialAd) {
-      (e = uni.createInterstitialAd({
-        adUnitId: "adunit-46faf356d01e8f5d",
-      })).onLoad(function () {
-        console.log("onLoad event emit");
-      });
-      e.onError(function (e) {
-        console.log("onError event emit", e);
-      });
-      e.onClose(function (e) {
-        console.log("onClose event emit", e);
-      });
-    }
+    // if (uni.createInterstitialAd) {
+    //   (e = uni.createInterstitialAd({
+    //     adUnitId: "adunit-46faf356d01e8f5d",
+    //   })).onLoad(function () {
+    //     console.log("onLoad event emit");
+    //   });
+    //   e.onError(function (e) {
+    //     console.log("onError event emit", e);
+    //   });
+    //   e.onClose(function (e) {
+    //     console.log("onClose event emit", e);
+    //   });
+    // }
   },
   onShow: function () {
     if (e) {
@@ -716,7 +718,7 @@ export default {
         s[2],
         s[3],
       );
-      u.draw(false, this.saveToAlbum);
+      u.draw(false, () => setTimeout(() => this.saveToAlbum(u), 100));
     },
 
     cleanCanvas: function () {
@@ -736,28 +738,28 @@ export default {
       });
     },
 
-    saveToAlbum: function () {
+    saveToAlbum: function (canvas) {
       var that = this;
       uni.canvasToTempFilePath({
         quality: 1,
-        canvasId: "myCanvas",
+        canvasId: canvas.canvasId,
         success: function (s) {
           that.cleanCanvas();
-          uni.authorize({
-            scope: "scope.writePhotosAlbum",
-            success: function () {
-              uni.saveImageToPhotosAlbum({
-                filePath: s.tempFilePath,
-                success: function (s) {
-                  that.showCanvas = false;
-                  uni.navigateTo({
-                    url: "/pages/my_module/phoneAlbum/success/index",
-                  });
-                },
+          // uni.authorize({
+          //   scope: "scope.writePhotosAlbum",
+          //   success: function () {
+          uni.saveImageToPhotosAlbum({
+            filePath: s.tempFilePath,
+            success: function (s) {
+              that.showCanvas = false;
+              uni.navigateTo({
+                url: "/pages/my_module/phoneAlbum/success/index",
               });
             },
           });
         },
+        // });
+        // },
       });
     },
 
@@ -772,7 +774,7 @@ export default {
         uni.getImageInfo({
           src: e.srcs[s].src,
           success: function (s) {
-            uni.saveFile({
+            uni.getFileSystemManager().saveFile({
               tempFilePath: s.path,
               success: function (s) {
                 e.selectedSrc = s.savedFilePath;

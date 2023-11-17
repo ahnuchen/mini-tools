@@ -300,7 +300,17 @@ export default {
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {},
+  onShareTimeline: function () {
+    return {
+      title: "个人房贷(商业/公积金/组合贷款)计算，每月还款明细查看",
+    };
+  },
+  onShareAppMessage: function () {
+    return {
+      path: "/pages/my_module/calc_mortgage/index",
+      title: "个人房贷(商业/公积金/组合贷款)计算，每月还款明细查看",
+    };
+  },
   methods: {
     // 公共方法
     resetData: function (loanType) {

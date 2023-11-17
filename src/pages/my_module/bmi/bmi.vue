@@ -231,6 +231,11 @@ export default {
       },
     };
   },
+  onShareTimeline: function () {
+    return {
+      title: "来测测你的BMI叭~",
+    };
+  },
   methods: {
     copyLink: function (e) {
       uni.setClipboardData({
