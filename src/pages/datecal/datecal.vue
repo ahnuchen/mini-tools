@@ -117,7 +117,7 @@ function disClear() {
 }
 
 const shareInfo = {
-  url: "/pages/datecal/datecal",
+  path: "/pages/datecal/datecal",
   title: "日期换算",
 };
 

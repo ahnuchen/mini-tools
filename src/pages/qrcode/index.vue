@@ -82,7 +82,7 @@ function onRes(src: string) {
 }
 
 const shareInfo = {
-  url: "/pages/qrcode/qrcode",
+  path: "/pages/qrcode/qrcode",
   title: "二维码生成工具",
 };
 

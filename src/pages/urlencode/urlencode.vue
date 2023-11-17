@@ -50,7 +50,7 @@ function empty2() {
 }
 
 const shareInfo = {
-  url: "/pages/urlencode/urlencode",
+  path: "/pages/urlencode/urlencode",
   title: "url编码解码",
 };
 

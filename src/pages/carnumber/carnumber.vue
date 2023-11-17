@@ -80,7 +80,7 @@ function onScroll(e) {
 }
 
 const shareInfo = {
-  url: "/pages/carnumber/carnumber",
+  path: "/pages/carnumber/carnumber",
   title: "车牌归属地查询",
 };
 

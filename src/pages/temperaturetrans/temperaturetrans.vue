@@ -84,7 +84,12 @@ const valueRe = ref();
 
 type Unit = "C" | "F" | "K" | "Ra" | "Re";
 
-function onChange(v: { value: string | number }, unit: Unit) {
+function onChange(
+  v: {
+    value: string | number;
+  },
+  unit: Unit,
+) {
   // C
   // F
   // K
@@ -182,7 +187,7 @@ function onChange(v: { value: string | number }, unit: Unit) {
 }
 
 const shareInfo = {
-  url: "/pages/temperaturetrans/temperaturetrans",
+  path: "/pages/temperaturetrans/temperaturetrans",
   title: "温度换算",
 };
 

@@ -32,7 +32,7 @@ import { categories } from "@/pages/index/categories";
 import { onShareAppMessage, onShareTimeline } from "@dcloudio/uni-app";
 
 const shareInfo = {
-  url: "/pages/index/index",
+  path: "/pages/index/index",
   title: "帮大忙工具箱",
   desc: "亲戚计算，手持弹幕，二维码生成",
 };

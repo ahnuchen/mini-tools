@@ -32,7 +32,7 @@ function format() {
 }
 
 const shareInfo = {
-  url: "/pages/jsonbeautify/jsonbeautify",
+  path: "/pages/jsonbeautify/jsonbeautify",
   title: "JSON美化工具",
 };
 

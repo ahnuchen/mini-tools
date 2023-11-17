@@ -142,7 +142,7 @@ function getResult() {
 }
 
 const shareInfo = {
-  url: "/pages/relativesname/relativesname",
+  path: "/pages/relativesname/relativesname",
   title: "亲戚称呼计算器",
 };
 

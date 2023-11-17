@@ -218,7 +218,9 @@
     },
     {
       "path": "pages/my_module/phone/phone",
-      "style": {}
+      "style": {
+        "navigationBarTitleText": "电话黄页"
+      }
     },
     {
       "path": "pages/my_module/protractor/protractor",
@@ -270,7 +272,7 @@
   ],
   "globalStyle": {
     "navigationBarTextStyle": "white",
-    "navigationBarTitleText": "uni-app",
+    "navigationBarTitleText": "帮大忙工具箱",
     "navigationBarBackgroundColor": "#007aff",
     "backgroundColor": "#F8F8F8"
   }

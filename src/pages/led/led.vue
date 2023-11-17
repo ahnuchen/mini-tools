@@ -15,7 +15,7 @@
             animationDuration === 0 || !slideOn ? 'animation-name:none;' : ''
           }`"
         >
-          <view v-if="checked" class="text-bounce">{{ textContent }}</view>
+          <view v-if="bounced" class="text-bounce">{{ textContent }}</view>
           <view v-else>{{ textContent }}</view>
         </view>
       </view>
@@ -70,9 +70,9 @@
                   <wd-col :span="12">
                     <view class="open-animate">
                       <view class="open-desc"
-                        >律动效果{{ checked ? "开 " : "关 " }}
+                        >律动效果{{ bounced ? "开 " : "关 " }}
                       </view>
-                      <wd-switch v-model="checked" />
+                      <wd-switch v-model="bounced" />
                     </view>
                   </wd-col>
                   <wd-col :span="12">
@@ -127,24 +127,21 @@
     <FloatBtn
       desc="在线手持LED工具，可以让你在任何场合高效地展示文字、图片或动画等信息，让你可以自由地编写和展示内容。手持弹幕LED工具它也具有多种颜色和字体，可以满足不同用户的需求。这种工具在各种场合都适用，例如商户推广、婚礼庆典、演唱会、展览等活动，都可以通过它展示出更加生动、有效的内容。"
     />
-    <wd-toast />
   </view>
 </template>
 
 <script setup lang="ts">
 import FloatBtn from "@/components/FloatBtn.vue";
-import { watch, ref } from "vue";
+import { ref, watch } from "vue";
 import { debounceFn } from "@/utils";
-import { useToast } from "wot-design-uni";
-import { onShareAppMessage, onShareTimeline } from "@dcloudio/uni-app";
+import { onLoad, onShareAppMessage, onShareTimeline } from "@dcloudio/uni-app";
 
 // text-shadow: ${colorReverse(activeColor)} -2rpx -6rpx,${colorReverse(activeBgColor)} 6rpx 0px;
-const toast = useToast();
 const showActionSheet = ref(true);
 const tab = ref(0);
 const size = ref(250);
 const speed = ref(50);
-const checked = ref(true);
+const bounced = ref(true);
 const slideOn = ref(true);
 const animationDuration = ref(5);
 const activeColor = ref("#ffffff");
@@ -156,9 +153,49 @@ const presetTexts = [
   "可以认识一下么？",
   "你好，盆友",
   "再见❤️我会想你的",
+  "分享给朋友，显示相同弹幕",
 ];
 const textContent = ref(presetTexts[0]);
 const customText = ref(presetTexts[0]);
+
+interface QueryObj {
+  size: string;
+  speed: string;
+  bounced: "1" | "0";
+  slideOn: "1" | "0";
+  activeColor: string;
+  activeBgColor: string;
+  textContent: string;
+}
+
+onLoad((e) => {
+  if (!e) {
+    return false;
+  }
+  let query = e as QueryObj;
+  if (query.size) {
+    size.value = Number(query.size);
+  }
+  if (query.speed) {
+    speed.value = Number(query.speed);
+  }
+  if (query.bounced) {
+    bounced.value = query.bounced === "1";
+  }
+  if (query.slideOn) {
+    slideOn.value = query.slideOn === "1";
+  }
+  if (query.activeColor) {
+    activeColor.value = "#" + query.activeColor;
+  }
+  if (query.activeBgColor) {
+    activeBgColor.value = "#" + query.activeBgColor;
+  }
+  if (query.textContent) {
+    textContent.value = query.textContent;
+    showActionSheet.value = false;
+  }
+});
 
 const presetColors = [
   "#FF7F00",
@@ -225,14 +262,23 @@ function setCustomText(text: string) {
   toggleShowActionSheet();
 }
 
-const shareInfo = {
-  url: "/pages/led/led",
-  title: "手持弹幕led",
+const getShareInfo = () => {
+  const queryString = `?size=${size.value}&speed=${speed.value}&bounced=${
+    bounced.value ? "1" : "0"
+  }&slideOn=${slideOn.value ? "1" : "0"}&activeColor=${activeColor.value.slice(
+    1,
+  )}&activeBgColor=${activeBgColor.value.slice(1)}&textContent=${
+    textContent.value
+  }`;
+  return {
+    path: `/pages/led/led${queryString}`,
+    title: "手持弹幕led",
+  };
 };
 
-onShareAppMessage(() => shareInfo);
+onShareAppMessage(() => getShareInfo());
 
-onShareTimeline(() => shareInfo);
+onShareTimeline(() => getShareInfo());
 </script>
 
 <style lang="scss">
