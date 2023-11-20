@@ -146,7 +146,11 @@ const shareInfo = {
   title: "亲戚称呼计算器",
 };
 
-onShareAppMessage(() => shareInfo);
+onShareAppMessage(() => ({
+  ...shareInfo,
+  imageUrl:
+    "https://xue.ccy1994.top/xiaochengxu/mini-tools/static/images/image_share_relativesname.png",
+}));
 
 onShareTimeline(() => shareInfo);
 // #endif

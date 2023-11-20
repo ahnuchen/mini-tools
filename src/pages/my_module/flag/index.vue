@@ -62,6 +62,18 @@ export default {
       avatarUrl: "",
       hasUserInfo: false,
       list: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
+      actions: [
+        {
+          name: "拍照",
+        },
+        {
+          name: "从相册选择",
+        },
+        {
+          name: "从聊天记录选择",
+        },
+      ],
+      show: false,
     };
   },
   onLoad: function (options) {
@@ -122,21 +134,73 @@ export default {
         });
       });
     },
+    showActions: function () {
+      this.setData({
+        show: true,
+      });
+    },
+    close: function () {
+      this.setData({
+        show: false,
+      });
+    },
 
-    chooseImage(e) {
-      let that = this;
+    select: function ({ item, index }) {
+      switch (index) {
+        case 0:
+          {
+            this.chooseFromPhoto();
+          }
+          break;
+        case 1:
+          {
+            this.chooseFromAlbum();
+          }
+          break;
+        case 2:
+          {
+            this.chooseFromMessageFile();
+          }
+          break;
+        default: {
+          this.chooseFromAlbum();
+        }
+      }
+    },
+
+    chooseFromAlbum: function (e) {
+      var that = this;
       uni.chooseImage({
         count: 1,
-        sizeType: ["original"],
-        sourceType: ["album", "camera"],
-        success(res) {
-          that.setData({
-            avatarUrl: res.tempFilePaths[0],
-            hasUserInfo: true,
-          });
-          that.drawImg(that.avatarUrl);
-        },
+        sourceType: ["album"],
+        success: that.onChooseSuccess,
       });
+    },
+
+    chooseFromPhoto: function (e) {
+      var that = this;
+      uni.chooseImage({
+        sourceType: ["camera"],
+        count: 1,
+        success: that.onChooseSuccess,
+      });
+    },
+
+    chooseFromMessageFile: function (e) {
+      var that = this;
+      uni.chooseMessageFile({
+        type: "image",
+        count: 1,
+        success: that.onChooseSuccess,
+      });
+    },
+    onChooseSuccess(res) {
+      let that = this;
+      that.setData({
+        avatarUrl: res.tempFilePaths[0],
+        hasUserInfo: true,
+      });
+      that.drawImg(that.avatarUrl);
     },
 
     drawImg(avatarUrl) {
@@ -207,7 +271,12 @@ export default {
       }
       uni.saveImageToPhotosAlbum({
         filePath: that.prurl,
-        success(res) {},
+        success(res) {
+          uni.showToast({
+            title: "已保存",
+            mask: true,
+          });
+        },
       });
     },
   },
@@ -248,7 +317,7 @@ export default {
 }
 
 .btn {
-  background-color: #eb9a41;
+  background-color: $uni-color-primary;
   border-radius: 10rpx;
   color: #ffffff;
   width: 130px !important;
