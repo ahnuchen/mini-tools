@@ -105,11 +105,16 @@ onShareTimeline(() => shareInfo);
     border: 1px solid $uni-color-primary;
     border-radius: $uni-border-radius-lg;
     background: #fff;
+
+    .wd-input__textarea-inner {
+      height: 400rpx;
+    }
   }
 
   .btns {
     display: flex;
     padding: 60rpx;
+    justify-content: space-between;
   }
 
   .code-image {

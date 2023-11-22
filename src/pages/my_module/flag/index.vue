@@ -32,7 +32,7 @@
 
       <!-- 预览区域 -->
       <view class="canvas-view-right">
-        <button @tap="chooseImage" class="btn">选择头像</button>
+        <button @tap="showActions" class="btn">选择头像</button>
         <button @tap="save" class="btn" :disabled="!hasUserInfo">
           保存头像
         </button>
@@ -44,6 +44,12 @@
     <!-- <view style="width: 95%;margin: 20rpx auto;">
 <ad unit-id="{{videoUnitId}}" ad-type="video" ad-theme="white" ad-intervals="30"></ad>
 </view> -->
+    <wd-action-sheet
+      v-model="show"
+      :actions="actions"
+      @close="close"
+      @select="select"
+    />
   </view>
 </template>
 
@@ -196,8 +202,12 @@ export default {
     },
     onChooseSuccess(res) {
       let that = this;
+      let fileInfo = (res.tempFilePaths || res.tempFiles)[0];
+      if (typeof fileInfo !== "string") {
+        fileInfo = fileInfo.path;
+      }
       that.setData({
-        avatarUrl: res.tempFilePaths[0],
+        avatarUrl: fileInfo,
         hasUserInfo: true,
       });
       that.drawImg(that.avatarUrl);
