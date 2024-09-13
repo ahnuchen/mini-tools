@@ -30,6 +30,8 @@ declare module '@vue/runtime-core' {
     WdOverlay: typeof import('wot-design-uni/components/wd-overlay/wd-overlay.vue')['default']
     WdPickerView: typeof import('wot-design-uni/components/wd-picker-view/wd-picker-view.vue')['default']
     WdPopup: typeof import('wot-design-uni/components/wd-popup/wd-popup.vue')['default']
+    WdRadio: typeof import('wot-design-uni/components/wd-radio/wd-radio.vue')['default']
+    WdRadioGroup: typeof import('wot-design-uni/components/wd-radio-group/wd-radio-group.vue')['default']
     WdResize: typeof import('wot-design-uni/components/wd-resize/wd-resize.vue')['default']
     WdRow: typeof import('wot-design-uni/components/wd-row/wd-row.vue')['default']
     WdSidebar: typeof import('wot-design-uni/components/wd-sidebar/wd-sidebar.vue')['default']

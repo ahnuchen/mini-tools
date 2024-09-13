@@ -38,18 +38,18 @@ export const categories: {
         url: "/pages/my_module/scanQrcode/scanQrcode",
         icon: "/static/icons/eqweimashibie.png",
       },
-      {
-        title: "国旗头像制作",
-        label: "",
-        url: "/pages/my_module/flag/index",
-        shortDesc: "",
-        icon: "/static/icons/guoqitouxiang.png",
-      },
-      {
-        title: "带壳截图",
-        url: "/pages/my_module/phoneAlbum/index",
-        icon: "/static/icons/phoneAlbum.png",
-      },
+      // {
+      //   title: "国旗头像制作",
+      //   label: "",
+      //   url: "/pages/my_module/flag/index",
+      //   shortDesc: "",
+      //   icon: "/static/icons/guoqitouxiang.png",
+      // },
+      // {
+      //   title: "带壳截图",
+      //   url: "/pages/my_module/phoneAlbum/index",
+      //   icon: "/static/icons/phoneAlbum.png",
+      // },
       {
         title: "图片拼接",
         url: "/pages/my_module/screenshotConnect/screenshotConnect",
@@ -67,6 +67,12 @@ export const categories: {
     title: "生活娱乐工具",
     icon: "location",
     items: [
+      {
+        title: "退休年龄",
+        url: "/pages/retire/retire",
+        shortDesc: "法定退休年龄计算器",
+        icon: "/static/icons/retire.png",
+      },
       {
         title: "手持弹幕LED",
         url: "/pages/led/led",

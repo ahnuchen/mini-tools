@@ -29,6 +29,13 @@
       }
     },
     {
+      "path": "pages/retire/retire",
+      "style": {
+        "navigationBarTitleText": "退休年龄计算",
+        "enablePullDownRefresh": false
+      }
+    },
+    {
       "path": "pages/led/led",
       "style": {
         "navigationBarTitleText": "手持弹幕LED",
